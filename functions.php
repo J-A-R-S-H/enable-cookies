@@ -143,6 +143,13 @@ add_action('widgets_init', 'enable_cookies_widgets_init');
  */
 function enable_cookies_scripts()
 {
+	wp_enqueue_style(
+		'enable-cookies-googlefonts',
+		'https://fonts.googleapis.com/css2?family=Caprasimo&family=Nunito+Sans:ital,opsz,wdth,wght,YTLC@0,6..12,75..125,200..1000,440..540;1,6..12,75..125,200..1000,440..540&family=Playpen+Sans:wght@100..800&display=swap',
+		array(),
+		null
+	);
+
 	wp_enqueue_style('enable-cookies-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('enable-cookies-style', 'rtl', 'replace');
 

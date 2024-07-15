@@ -90,7 +90,7 @@ get_header();
     else :
         echo 'No products found in this category.';
     endif;
-    ?>?>
+    ?>
 
 
 </main><!-- #main -->

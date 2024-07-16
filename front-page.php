@@ -1,4 +1,4 @@
-<ol?php
+<?php
 
 /**
  * The template for displaying all pages
@@ -292,10 +292,8 @@ get_header();
                             </li>
                         <?php endif; ?>
                     </ol>
-                <?php endif; ?>
-
-            endif;
-            ?>
+                <?php endif;
+            endif; ?>
         </section>
         <section class="faq">
             <?php

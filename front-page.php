@@ -25,14 +25,14 @@ get_header();
         <section class="cookies">
             <?php
             if (function_exists( 'get_field' )) :
-                $cookies_header_1 = get_field( 'cookies_header_1' );
-                $cookies_header_2 = get_field( 'cookies_header_2' );
+                $cookies_heading_1 = get_field( 'cookies_heading_1' );
+                $cookies_heading_2 = get_field( 'cookies_heading_2' );
                 
-                if ($cookies_header_1 || $cookies_header_2): ?>
+                if ($cookies_heading_1 || $cookies_heading_2): ?>
                     <h2>
-                        <?php echo $cookies_header_1; 
-                            if ($cookies_header_2): ?>
-                                <span><?php echo $cookies_header_2; ?></span>
+                        <?php echo $cookies_heading_1; 
+                            if ($cookies_heading_2): ?>
+                                <span><?php echo $cookies_heading_2; ?></span>
                             <?php endif; ?>
                     </h2>
                 <?php endif;
@@ -71,16 +71,16 @@ get_header();
         <section class="about">
             <?php
             if (function_exists( 'get_field' )) :
-                $about_header_1 = get_field( 'about_header_1' );
-                $about_header_2 = get_field( 'about_header_2' );
+                $about_heading_1 = get_field( 'about_heading_1' );
+                $about_heading_2 = get_field( 'about_heading_2' );
                 $about_image_id = get_field( 'about_image' );
                 $about_text     = get_field( 'about_text' );
                 
-                if ($about_header_1 || $about_header_2): ?>
+                if ($about_heading_1 || $about_heading_2): ?>
                     <h2>
-                        <?php echo $about_header_1; 
-                            if ($about_header_2): ?>
-                                <span><?php echo $about_header_2; ?></span>
+                        <?php echo $about_heading_1; 
+                            if ($about_heading_2): ?>
+                                <span><?php echo $about_heading_2; ?></span>
                             <?php endif; ?>
                     </h2>
                 <?php endif;
@@ -103,8 +103,8 @@ get_header();
             
             <?php
             if (function_exists( 'get_field' )) :
-                $bp_header_1    = get_field( 'bp_header_1' );
-                $bp_header_2    = get_field( 'bp_header_2' );
+                $bp_heading_1    = get_field( 'bp_heading_1' );
+                $bp_heading_2    = get_field( 'bp_heading_2' );
                 $bp_text        = get_field( 'bp_text' );
                 $bp_main_point_1   = get_field( 'bp_main_point_1' );
                 $bp_main_point_2   = get_field( 'bp_main_point_2' );
@@ -113,14 +113,14 @@ get_header();
                 $bp_bullet_point_2 = get_field( 'bp_bullet_point_2' );
                 $bp_bullet_point_3 = get_field( 'bp_bullet_point_3' );
                 
-                if ($bp_header_1 || $bp_header_2 || $bp_text) : ?>
+                if ($bp_heading_1 || $bp_heading_2 || $bp_text) : ?>
                     <div><?php
 
-                        if ($bp_header_1 || $bp_header_2): ?>
+                        if ($bp_heading_1 || $bp_heading_2): ?>
                             <h2>
-                                <?php echo $bp_header_1; 
-                                    if ($bp_header_2): ?>
-                                        <span><?php echo $bp_header_2; ?></span>
+                                <?php echo $bp_heading_1; 
+                                    if ($bp_heading_2): ?>
+                                        <span><?php echo $bp_heading_2; ?></span>
                                     <?php endif; ?>
                             </h2>
                         <?php endif;
@@ -170,14 +170,14 @@ get_header();
         <section class="packs">
             <?php 
             if (function_exists( 'get_field' )) :
-                $packs_header_1 = get_field( 'packs_header_1' );
-                $packs_header_2 = get_field( 'packs_header_2' );
+                $packs_heading_1 = get_field( 'packs_heading_1' );
+                $packs_heading_2 = get_field( 'packs_heading_2' );
                 
-                if ($packs_header_1 || $packs_header_2): ?>
+                if ($packs_heading_1 || $packs_heading_2): ?>
                     <h2>
-                        <?php echo $packs_header_1; 
-                            if ($packs_header_2): ?>
-                                <span><?php echo $packs_header_2; ?></span>
+                        <?php echo $packs_heading_1; 
+                            if ($packs_heading_2): ?>
+                                <span><?php echo $packs_heading_2; ?></span>
                             <?php endif; ?>
                     </h2>
                 <?php endif;
@@ -212,8 +212,8 @@ get_header();
         <section class="order">
             <?php
             if (function_exists( 'get_field' )) :
-                $order_header_1 = get_field( 'order_header_1' );
-                $order_header_2 = get_field( 'order_header_2' );
+                $order_heading_1 = get_field( 'order_heading_1' );
+                $order_heading_2 = get_field( 'order_heading_2' );
                 $order_reminder = get_field( 'order_reminder' );
                 $instruction_1  = get_field( 'instruction_1' );
                 $instruction_2  = get_field( 'instruction_2' );
@@ -227,11 +227,11 @@ get_header();
                 $social_media_link_1 = get_field( 'social_media_link_1' );
                 $social_media_link_2 = get_field( 'social_media_link_2' );
                 
-                if ($order_header_1 || $order_header_2): ?>
+                if ($order_heading_1 || $order_heading_2): ?>
                     <h2>
-                        <?php echo $order_header_1; 
-                            if ($order_header_2): ?>
-                                <span><?php echo $order_header_2; ?></span>
+                        <?php echo $order_heading_1; 
+                            if ($order_heading_2): ?>
+                                <span><?php echo $order_heading_2; ?></span>
                             <?php endif; ?>
                     </h2>
                 <?php endif;
@@ -298,8 +298,8 @@ get_header();
         <section class="faq">
             <?php
             if (function_exists( 'get_field' )) :
-                $faq_header_1   = get_field( 'faq_header_1' );
-                $faq_header_2   = get_field( 'faq_header_2' );
+                $faq_heading_1   = get_field( 'faq_heading_1' );
+                $faq_heading_2   = get_field( 'faq_heading_2' );
                 $question_1     = get_field( 'question_1' );
                 $question_2     = get_field( 'question_2' );
                 $question_3     = get_field( 'question_3' );
@@ -310,11 +310,11 @@ get_header();
                 $answer_4       = get_field( 'answer_4' );
                 
                 
-                if ($faq_header_1 || $faq_header_2): ?>
+                if ($faq_heading_1 || $faq_heading_2): ?>
                     <h2>
-                        <?php echo $faq_header_1; 
-                            if ($faq_header_2): ?>
-                                <span><?php echo $faq_header_2; ?></span>
+                        <?php echo $faq_heading_1; 
+                            if ($faq_heading_2): ?>
+                                <span><?php echo $faq_heading_2; ?></span>
                             <?php endif; ?>
                     </h2>
                 <?php endif;

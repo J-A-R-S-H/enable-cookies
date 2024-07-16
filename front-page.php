@@ -22,79 +22,88 @@ get_header();
     while (have_posts()) :
         the_post();
 
-        get_template_part('template-parts/content', 'page');
+        if (function_exists( 'get_field' )) :
+            $about_header_1 = get_field( 'about_header_1' );
+            $about_header_2 = get_field( 'about_header_2' );
+            
+            if ($about_header_1 || $about_header_2): ?>
+                <h2>
+                    <?php $about_header_1; 
+                        if ($about_header_2): ?>
+                            <span><?php $about_header_2; ?></span>
+                        <?php endif; ?>
+                </h2>
+            <?php endif;
+        endif; ?>
 
-        // If comments are open or we have at least one comment, load up the comment template.
-        if (comments_open() || get_comments_number()) :
-            comments_template();
+        <?php
+        // Query products from a specific category
+        $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'slug',
+                    'terms' => 'cookies',
+                ),
+            ),
+        );
+
+        $products = new WP_Query($args);
+
+        if ($products->have_posts()) :
+            echo '<ul class="products">';
+            while ($products->have_posts()) : $products->the_post();
+                wc_get_template_part('content', 'product');
+            endwhile;
+            echo '</ul>';
+            wp_reset_postdata();
+        else :
+            echo 'No products found in this category.';
         endif;
+        ?>
 
-    endwhile; // End of the loop.
-    ?>
+
+
+
+
+        <h3>Placeholder Pls remove this</h3>
+        <?php
+        $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'slug',
+                    'terms' => 'pack-of-cookies',
+                ),
+            ),
+        );
+
+        $products = new WP_Query($args);
+
+        if ($products->have_posts()) :
+            echo '<ul class="products">';
+            while ($products->have_posts()) : $products->the_post();
+                wc_get_template_part('content', 'product');
+            endwhile;
+            echo '</ul>';
+            wp_reset_postdata();
+        else :
+            echo 'No products found in this category.';
+        endif;
+        ?>
 
     <?php
-    // Query products from a specific category
-    $args = array(
-        'post_type' => 'product',
-        'posts_per_page' => -1,
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'product_cat',
-                'field' => 'slug',
-                'terms' => 'cookies',
-            ),
-        ),
-    );
-
-    $products = new WP_Query($args);
-
-    if ($products->have_posts()) :
-        echo '<ul class="products">';
-        while ($products->have_posts()) : $products->the_post();
-            wc_get_template_part('content', 'product');
-        endwhile;
-        echo '</ul>';
-        wp_reset_postdata();
-    else :
-        echo 'No products found in this category.';
-    endif;
+        endwhile; // End of the loop.
     ?>
-
-
-
-
-
-    <h3>Placeholder Pls remove this</h3>
-    <?php
-    $args = array(
-        'post_type' => 'product',
-        'posts_per_page' => -1,
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'product_cat',
-                'field' => 'slug',
-                'terms' => 'pack-of-cookies',
-            ),
-        ),
-    );
-
-    $products = new WP_Query($args);
-
-    if ($products->have_posts()) :
-        echo '<ul class="products">';
-        while ($products->have_posts()) : $products->the_post();
-            wc_get_template_part('content', 'product');
-        endwhile;
-        echo '</ul>';
-        wp_reset_postdata();
-    else :
-        echo 'No products found in this category.';
-    endif;
-    ?>
+    
 
 
 </main><!-- #main -->
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();

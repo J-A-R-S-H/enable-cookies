@@ -1,60 +1,34 @@
 ul.products {
-	margin: 0;
-	padding: 0;
-
-	li.product {
-		list-style: none;
-		position: relative;
-		margin-bottom: 2em;
-
-		img {
-			display: block;
-		}
-
-		.button {
-			display: block;
-		}
-	}
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  li.product {
+    list-style: none;
+    flex: 0 0 calc(100%);
+    max-width: calc(100%);
+    text-align: center;
+    text-decoration: none;
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 585px) {
+  ul.products li.product {
+    flex: 0 0 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+}
 
-	ul.products {
-
-		li.product {
-
-			@include column-width(3);
-			float: left;
-			margin-right: $columns__margin;
-
-			&.first {
-				clear: both;
-			}
-
-			&.last {
-				margin-right: 0;
-			}
-		}
-	}
-
-	ul.products.columns-1 {
-
-		li.product {
-			float: none;
-			width: 100%;
-		}
-
-	}
-
-	@for $i from 2 through 6 {
-
-		ul.products.columns-#{$i} {
-
-			li.product {
-
-				@include column-width( $i );
-			}
-
-		}
-	}
+@media screen and (min-width: 1200px) {
+  ul.products li.product {
+    flex: 0 0 calc(33.3% - 1rem);
+    max-width: calc(
+      33.3% - 1rem
+    ); //if future self is wondering why I have 1rem here, check the top how much the gap is for it, is it 1rem? It's due to ur fricking calculations of having to need 33.3% can't be a perfect 33.3% due to the gap of things so you need to minus it by the gap so you can make space for therefore making the columns you want. Anyways have fun.
+  }
 }

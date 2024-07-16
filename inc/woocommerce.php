@@ -254,3 +254,33 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
 // remove categories
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+// remove prices products 
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+
+// add acf fields after the title
+add_action('woocommerce_single_product_summary', 'display_product_specifications', 25);
+function display_product_specifications()
+{
+	//ACF field in here
+	$ingredients = get_field('ingredients');
+	$allergen_info = get_field('allergen_info');
+
+	// Check if the field has a value
+	if (function_exists('get_field')) {
+		if ($ingredients) {
+			echo '<section class="ingredients">';
+			echo '<h3>Ingredients:</h3>';
+			echo '<p>' . $ingredients . '</p>';
+			echo '</section>';
+		}
+
+		if ($allergen_info) {
+			echo '<section class="allergen">';
+			echo '<h3>Allergen Info: </h3>';
+			echo '<p>' . $allergen_info . '</p>';
+			echo '</section>';
+		}
+	}
+}

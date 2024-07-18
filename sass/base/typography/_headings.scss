@@ -10,14 +10,15 @@ h6 {
 h1 {
 	font-family: $font__header;
 	font-weight: 400;
-	color: $brand__primary;
+	color: $brand_primary;
 	font-size: 2.5rem;
 }
 
 h2 {
 	font-family: $font__header;
+	font-weight: 400;
 	font-size: 2rem;
-	color: $brand__secondary;
+	color: $brand_secondary;
 }
 
 h2>span {

@@ -22,6 +22,17 @@ get_header();
     while (have_posts()) :
         the_post(); ?>
 
+        <header>
+            <?php
+            if (function_exists( 'get_field' )) :
+                $hero_image_id = get_field( 'hero_image' );
+
+                if ($hero_image_id) :
+                    echo wp_get_attachment_image($hero_image_id, 'large');
+                endif; 
+            endif; ?>
+        </header>
+
         <section class="cookies">
             <?php
             if (function_exists( 'get_field' )) :

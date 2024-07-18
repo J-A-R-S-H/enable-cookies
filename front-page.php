@@ -68,7 +68,20 @@ get_header();
                 if ($products->have_posts()) :
                     echo '<ul class="products">';
                     while ($products->have_posts()) : $products->the_post();
+
+                        ob_start();
+
                         wc_get_template_part('content', 'product');
+
+                        if (function_exists( 'get_field' )) :
+                            $cookie = ob_get_clean();
+                            
+                            $cookie_text_colour = get_field( 'cookie_text_colour', get_the_ID() );
+
+                            $cookie = str_replace( '<h2 class="woocommerce-loop-product__title">', '<h2 class="woocommerce-loop-product__title" style="color:' . $cookie_text_colour . ';">', $cookie );
+                        endif;
+
+                        echo $cookie;
                     endwhile;
                     echo '</ul>';
                     wp_reset_postdata();

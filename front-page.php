@@ -56,11 +56,13 @@ get_header();
                     'posts_per_page' => -1,
                     'tax_query' => array(
                         array(
-                            'taxonomy' => 'product_cat',
-                            'field' => 'slug',
-                            'terms' => 'cookies',
+                            'taxonomy'  => 'product_cat',
+                            'field'     => 'slug',
+                            'terms'     => 'cookies',
                         ),
                     ),
+                    'orderby'   => 'menu_order',
+                    'order'     => 'ASC',
                 );
 
                 $products = new WP_Query($args);
@@ -75,7 +77,7 @@ get_header();
 
                         if (function_exists( 'get_field' )) :
                             $cookie = ob_get_clean();
-                            
+
                             $cookie_text_colour = get_field( 'cookie_text_colour', get_the_ID() );
 
                             $cookie = str_replace( '<h2 class="woocommerce-loop-product__title">', '<h2 class="woocommerce-loop-product__title" style="color:' . $cookie_text_colour . ';">', $cookie );
@@ -217,6 +219,8 @@ get_header();
                         'terms' => 'pack-of-cookies',
                     ),
                 ),
+                'orderby'   => 'menu_order',
+                'order'     => 'ASC',
             );
 
             $products = new WP_Query($args);

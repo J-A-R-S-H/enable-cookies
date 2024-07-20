@@ -165,7 +165,7 @@ get_header();
                                     <h3><?php echo $bp_main_point_1; ?></h3>
                                 <?php endif;
                                 if ($bp_bullet_point_1) : ?>
-                                    <li><?php echo $bp_bullet_point_1; ?></li>
+                                    <p><?php echo $bp_bullet_point_1; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif;
@@ -175,7 +175,7 @@ get_header();
                                     <h3><?php echo $bp_main_point_2; ?></h3>
                                 <?php endif;
                                 if ($bp_bullet_point_2) : ?>
-                                    <li><?php echo $bp_bullet_point_2; ?></li>
+                                    <p><?php echo $bp_bullet_point_2; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif;
@@ -185,7 +185,7 @@ get_header();
                                     <h3><?php echo $bp_main_point_3; ?></h3>
                                 <?php endif;
                                 if ($bp_bullet_point_3) : ?>
-                                    <li><?php echo $bp_bullet_point_3; ?></li>
+                                    <p><?php echo $bp_bullet_point_3; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif; ?>
@@ -243,6 +243,7 @@ get_header();
                 $order_heading_1 = get_field( 'order_heading_1' );
                 $order_heading_2 = get_field( 'order_heading_2' );
                 $order_reminder = get_field( 'order_reminder' );
+                $order_form     = get_field( 'order_form' );
                 $instruction_1  = get_field( 'instruction_1' );
                 $instruction_2  = get_field( 'instruction_2' );
                 $instruction_3  = get_field( 'instruction_3' );
@@ -252,8 +253,8 @@ get_header();
                 $contact_instruction = get_field( 'contact_instruction' );
                 $phone_number   = get_field( 'phone_number' );
                 $business_email = get_field( 'business_email' );
-                $social_media_link_1 = get_field( 'social_media_link_1' );
-                $social_media_link_2 = get_field( 'social_media_link_2' );
+                $facebook       = get_field( 'facebook' );
+                $instagram      = get_field( 'instagram' );
                 
                 if ($order_heading_1 || $order_heading_2): ?>
                     <h2>
@@ -264,34 +265,49 @@ get_header();
                     </h2>
                 <?php endif;
 
-                if ($instruction_1 || $instruction_details_1) :
-                    ?><ol><?php
+                if ($instruction_1 || $instruction_details_1) :?>
+                    <ol><?php
                         if ($instruction_1 || $instruction_details_1) : ?>
                             <li><?php
                                 if ($instruction_1) : ?>
                                     <h3><?php echo $instruction_1; ?></h3>
                                 <?php endif;
                                 if ($instruction_details_1) : ?>
-                                    <li><?php echo $instruction_details_1; ?></li>
+                                    <p><?php echo $instruction_details_1; ?></p>
                                 <?php endif;
-                                if ($contact_instruction || $phone_number || $business_email || $social_media_link_1 || $social_media_link_2) : ?>
+                                if ($order_form) : 
+                                    $order_form_url = $order_form['url'];
+                                    $order_form_title = $order_form['title'];
+                                    $order_form_target = $order_form['target'] ? $order_form['target'] : '_self'; ?>
+                                    <a class="button" href="<?php echo esc_url( $order_form_url ); ?>" target="<?php echo esc_attr( $order_form_target ); ?>"><?php echo esc_html( $order_form_title ); ?></a>
+                                <?php endif;
+                                if ($contact_instruction || $phone_number || $business_email || $facebook || $instagram) : ?>
                                     <div class="contact">
                                         <?php if($contact_instruction) : ?>
                                             <p><?php echo $contact_instruction; ?></p>
                                         <?php endif; 
-                                        if ($phone_number || $business_email || $social_media_link_1 || $social_media_link_2) : ?>
+                                        if ($phone_number || $business_email || $facebook || $instagram) : ?>
                                             <div>
-                                                <?php if($phone_number) : ?>
-                                                    <p><?php echo $phone_number; ?></p>
+                                                <?php if($phone_number) :
+                                                    $phone_number_url = $phone_number['url'];
+                                                    $phone_number_title = $phone_number['title'];
+                                                    $phone_number_target = $phone_number['target'] ? $phone_number['target'] : '_self'; ?>
+                                                    <a href="<?php echo esc_url( $phone_number_url ); ?>" target="<?php echo esc_attr( $phone_number_target ); ?>"><?php echo esc_html( $phone_number_title ); ?></a>
                                                 <?php endif;
                                                 if($business_email) : ?>
-                                                    <p><?php echo $business_email; ?></p>
+                                                    <a href="<?php echo $business_email; ?>"><?php echo $business_email; ?></a>
                                                 <?php endif;
-                                                if($social_media_link_1) : ?>
-                                                    <p><?php echo $social_media_link_1; ?></p>
+                                                if($facebook) :
+                                                    $facebook_url = $facebook['url'];
+                                                    $facebook_title = $facebook['title'];
+                                                    $facebook_target = $facebook['target'] ? $facebook['target'] : '_self'; ?>
+                                                    <a href="<?php echo esc_url( $facebook_url ); ?>" target="<?php echo esc_attr( $facebook_target ); ?>"><?php echo esc_html( $facebook_title ); ?></a>
                                                 <?php endif;
-                                                if($social_media_link_2) : ?>
-                                                    <p><?php echo $social_media_link_2; ?></p>
+                                                if($instagram) :
+                                                    $instagram_url = $instagram['url'];
+                                                    $instagram_title = $instagram['title'];
+                                                    $instagram_target = $instagram['target'] ? $instagram['target'] : '_self'; ?>
+                                                    <a href="<?php echo esc_url( $instagram_url ); ?>" target="<?php echo esc_attr( $instagram_target ); ?>"><?php echo esc_html( $instagram_title ); ?></a>
                                                 <?php endif; ?>
                                             </div>
                                         <?php endif; ?>
@@ -305,7 +321,7 @@ get_header();
                                     <h3><?php echo $instruction_2; ?></h3>
                                 <?php endif;
                                 if ($instruction_details_2) : ?>
-                                    <li><?php echo $instruction_details_2; ?></li>
+                                    <p><?php echo $instruction_details_2; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif;
@@ -315,7 +331,7 @@ get_header();
                                     <h3><?php echo $instruction_3; ?></h3>
                                 <?php endif;
                                 if ($instruction_details_3) : ?>
-                                    <li><?php echo $instruction_details_3; ?></li>
+                                    <p><?php echo $instruction_details_3; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif; ?>
@@ -348,14 +364,14 @@ get_header();
                 <?php endif;
 
                 if ($question_1 && $answer_1) :
-                    ?><ol><?php
+                    ?><ul><?php
                         if ($question_1 && $answer_1) : ?>
                             <li><?php
                                 if ($question_1) : ?>
                                     <h3><?php echo $question_1; ?></h3>
                                 <?php endif;
                                 if ($answer_1) : ?>
-                                    <li><?php echo $answer_1; ?></li>
+                                    <p><?php echo $answer_1; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif;
@@ -365,7 +381,7 @@ get_header();
                                     <h3><?php echo $question_2; ?></h3>
                                 <?php endif;
                                 if ($answer_2) : ?>
-                                    <li><?php echo $answer_2; ?></li>
+                                    <p><?php echo $answer_2; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif;
@@ -375,7 +391,7 @@ get_header();
                                     <h3><?php echo $question_3; ?></h3>
                                 <?php endif;
                                 if ($answer_3) : ?>
-                                    <li><?php echo $answer_3; ?></li>
+                                    <p><?php echo $answer_3; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif;
@@ -385,11 +401,11 @@ get_header();
                                     <h3><?php echo $question_4; ?></h3>
                                 <?php endif;
                                 if ($answer_4) : ?>
-                                    <li><?php echo $answer_4; ?></li>
+                                    <p><?php echo $answer_4; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif; ?>
-                    </ol>
+                    </ul>
                 <?php endif;
             endif;
             ?>

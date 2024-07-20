@@ -37,23 +37,29 @@
 				?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
-			endif;
-			$enable_cookies_description = get_bloginfo( 'description', 'display' );
-			if ( $enable_cookies_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $enable_cookies_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
+			endif; ?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'enable-cookies' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
+			<div class="menu-header-menu-container">
+				<ul id="header-menu" class="menu nav-menu">
+					<li id="menu-item-home" class="menu-item menu-item-post_type menu-item-object-page menu-item-home">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Home</a>
+					</li>
+					<li id="menu-item-cookies" class="menu-item menu-item-post_type menu-item-object-page menu-item-cookies">
+						<a href="#cookies">Cookies</a>
+					</li>
+					<li id="menu-item-packs" class="menu-item menu-item-post_type menu-item-object-page menu-item-packs">
+						<a href="#packs">Packs</a>
+					</li>
+					<li id="menu-item-about" class="menu-item menu-item-post_type menu-item-object-page menu-item-about">
+						<a href="#about">About</a>
+					</li>
+					<li id="menu-item-order" class="menu-item menu-item-post_type menu-item-object-page menu-item-order">
+						<a href="#order">Order</a>
+					</li>
+				</ul>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

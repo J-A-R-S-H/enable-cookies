@@ -33,7 +33,7 @@ get_header();
             endif; ?>
         </header>
 
-        <section class="cookies">
+        <section id="cookies" class="cookies">
             <?php
             if (function_exists( 'get_field' )) :
                 $cookies_heading_1 = get_field( 'cookies_heading_1' );
@@ -94,7 +94,7 @@ get_header();
             ?>
         </section>
 
-        <section class="about">
+        <section id="about" class="about">
             <?php
             if (function_exists( 'get_field' )) :
                 $about_heading_1 = get_field( 'about_heading_1' );
@@ -193,7 +193,7 @@ get_header();
                 <?php endif;
             endif; ?>
         </section>
-        <section class="packs">
+        <section id="packs" class="packs">
             <?php 
             if (function_exists( 'get_field' )) :
                 $packs_heading_1 = get_field( 'packs_heading_1' );
@@ -237,7 +237,7 @@ get_header();
             endif;
             ?>
         </section>
-        <section class="order">
+        <section id="order" class="order">
             <?php
             if (function_exists( 'get_field' )) :
                 $order_heading_1 = get_field( 'order_heading_1' );

@@ -259,6 +259,15 @@ remove_action('woocommerce_single_product_summary', 'woocommerce_template_single
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 
+// remove additional information products
+function remove_additional_information_tab_callback($tabs)
+{
+	unset($tabs['additional_information']);
+	return $tabs;
+}
+add_filter('woocommerce_product_tabs', 'remove_additional_information_tab_callback', 98);
+
+
 // add acf fields after the title
 add_action('woocommerce_single_product_summary', 'display_product_specifications', 25);
 function display_product_specifications()

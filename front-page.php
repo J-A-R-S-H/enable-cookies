@@ -24,32 +24,32 @@ get_header();
 
         <header>
             <?php
-            if (function_exists( 'get_field' )) :
-                $hero_image_id = get_field( 'hero_image' );
+            if (function_exists('get_field')) :
+                $hero_image_id = get_field('hero_image');
 
                 if ($hero_image_id) :
                     echo wp_get_attachment_image($hero_image_id, 'large');
-                endif; 
+                endif;
             endif; ?>
         </header>
 
         <section id="cookies" class="cookies">
             <?php
-            if (function_exists( 'get_field' )) :
-                $cookies_heading_1 = get_field( 'cookies_heading_1' );
-                $cookies_heading_2 = get_field( 'cookies_heading_2' );
-                
-                if ($cookies_heading_1 || $cookies_heading_2): ?>
+            if (function_exists('get_field')) :
+                $cookies_heading_1 = get_field('cookies_heading_1');
+                $cookies_heading_2 = get_field('cookies_heading_2');
+
+                if ($cookies_heading_1 || $cookies_heading_2) : ?>
                     <h2>
-                        <?php echo $cookies_heading_1; 
-                            if ($cookies_heading_2): ?>
-                                <span><?php echo $cookies_heading_2; ?></span>
-                            <?php endif; ?>
+                        <?php echo $cookies_heading_1;
+                        if ($cookies_heading_2) : ?>
+                            <span><?php echo $cookies_heading_2; ?></span>
+                        <?php endif; ?>
                     </h2>
-                <?php endif;
+            <?php endif;
             endif;
 
-            if (is_plugin_active( 'woocommerce/woocommerce.php' )):
+            if (is_plugin_active('woocommerce/woocommerce.php')) :
                 // Query products from a specific category
                 $args = array(
                     'post_type' => 'product',
@@ -75,12 +75,12 @@ get_header();
 
                         wc_get_template_part('content', 'product');
 
-                        if (function_exists( 'get_field' )) :
+                        if (function_exists('get_field')) :
                             $cookie = ob_get_clean();
 
-                            $cookie_text_colour = get_field( 'cookie_text_colour', get_the_ID() );
+                            $cookie_text_colour = get_field('cookie_text_colour', get_the_ID());
 
-                            $cookie = str_replace( '<h2 class="woocommerce-loop-product__title">', '<h2 class="woocommerce-loop-product__title" style="color:' . $cookie_text_colour . ';">', $cookie );
+                            $cookie = str_replace('<h2 class="woocommerce-loop-product__title">', '<h2 class="woocommerce-loop-product__title" style="color:' . $cookie_text_colour . ';">', $cookie);
                         endif;
 
                         echo $cookie;
@@ -96,70 +96,71 @@ get_header();
 
         <section id="about" class="about">
             <?php
-            if (function_exists( 'get_field' )) :
-                $about_heading_1 = get_field( 'about_heading_1' );
-                $about_heading_2 = get_field( 'about_heading_2' );
-                $about_image_id = get_field( 'about_image' );
-                $about_text     = get_field( 'about_text' );
-                
-                if ($about_heading_1 || $about_heading_2): ?>
+            if (function_exists('get_field')) :
+                $about_heading_1 = get_field('about_heading_1');
+                $about_heading_2 = get_field('about_heading_2');
+                $about_image_id = get_field('about_image');
+                $about_text     = get_field('about_text');
+
+                if ($about_heading_1 || $about_heading_2) : ?>
                     <h2>
-                        <?php echo $about_heading_1; 
-                            if ($about_heading_2): ?>
-                                <span><?php echo $about_heading_2; ?></span>
-                            <?php endif; ?>
+                        <?php echo $about_heading_1;
+                        if ($about_heading_2) : ?>
+                            <span><?php echo $about_heading_2; ?></span>
+                        <?php endif; ?>
                     </h2>
                 <?php endif;
 
                 if ($about_image_id || $about_text) : ?>
-                <div>
-                    <?php
-                    if ($about_image_id) :
-                        echo wp_get_attachment_image($about_image_id, 'large');
-                    endif;
-                    
-                    if ($about_text) : ?>
-                        <p><?php echo $about_text; ?></p>
-                    <?php endif; ?>
-                </div>
-                <?php endif;
+                    <div>
+                        <?php
+                        if ($about_image_id) :
+                            echo wp_get_attachment_image($about_image_id, 'large');
+                        endif;
+
+                        if ($about_text) : ?>
+                            <p><?php echo $about_text; ?></p>
+                        <?php endif; ?>
+                    </div>
+            <?php endif;
             endif; ?>
         </section>
         <section class="business-proposition">
-            
+
             <?php
-            if (function_exists( 'get_field' )) :
-                $bp_heading_1    = get_field( 'bp_heading_1' );
-                $bp_heading_2    = get_field( 'bp_heading_2' );
-                $bp_text        = get_field( 'bp_text' );
-                $bp_main_point_1   = get_field( 'bp_main_point_1' );
-                $bp_main_point_2   = get_field( 'bp_main_point_2' );
-                $bp_main_point_3   = get_field( 'bp_main_point_3' );
-                $bp_bullet_point_1 = get_field( 'bp_bullet_point_1' );
-                $bp_bullet_point_2 = get_field( 'bp_bullet_point_2' );
-                $bp_bullet_point_3 = get_field( 'bp_bullet_point_3' );
-                
+            if (function_exists('get_field')) :
+                $bp_heading_1    = get_field('bp_heading_1');
+                $bp_heading_2    = get_field('bp_heading_2');
+                $bp_text        = get_field('bp_text');
+                $bp_main_point_1   = get_field('bp_main_point_1');
+                $bp_main_point_2   = get_field('bp_main_point_2');
+                $bp_main_point_3   = get_field('bp_main_point_3');
+                $bp_bullet_point_1 = get_field('bp_bullet_point_1');
+                $bp_bullet_point_2 = get_field('bp_bullet_point_2');
+                $bp_bullet_point_3 = get_field('bp_bullet_point_3');
+
                 if ($bp_heading_1 || $bp_heading_2 || $bp_text) : ?>
                     <div><?php
 
-                        if ($bp_heading_1 || $bp_heading_2): ?>
+                            if ($bp_heading_1 || $bp_heading_2) : ?>
                             <h2>
-                                <?php echo $bp_heading_1; 
-                                    if ($bp_heading_2): ?>
-                                        <span><?php echo $bp_heading_2; ?></span>
-                                    <?php endif; ?>
+                                <?php echo $bp_heading_1;
+                                if ($bp_heading_2) : ?>
+                                    <span><?php echo $bp_heading_2; ?></span>
+                                <?php endif; ?>
                             </h2>
                         <?php endif;
 
-                        if ($bp_text) :
-                            echo $bp_text;
+                            if ($bp_text) :
+                                echo $bp_text;
+                            endif;
+                        ?>
+                    </div><?php
                         endif;
-                    ?></div><?php
-                endif;
 
-                if ($bp_main_point_1 || $bp_bullet_point_1) :
-                    ?><ol><?php
-                        if ($bp_main_point_1 || $bp_bullet_point_1) : ?>
+                        if ($bp_main_point_1 || $bp_bullet_point_1) :
+                            ?><ol><?php
+                            if ($bp_main_point_1 || $bp_bullet_point_1) : ?>
                             <li><?php
                                 if ($bp_main_point_1) : ?>
                                     <h3><?php echo $bp_main_point_1; ?></h3>
@@ -172,8 +173,8 @@ get_header();
                         if ($bp_main_point_2 || $bp_bullet_point_2) : ?>
                             <li><?php
                                 if ($bp_main_point_2) : ?>
-                                    <h3><?php echo $bp_main_point_2; ?></h3>
-                                <?php endif;
+                                <h3><?php echo $bp_main_point_2; ?></h3>
+                            <?php endif;
                                 if ($bp_bullet_point_2) : ?>
                                     <p><?php echo $bp_bullet_point_2; ?></p>
                                 <?php endif; ?>
@@ -182,33 +183,33 @@ get_header();
                         if ($bp_main_point_3 || $bp_bullet_point_3) : ?>
                             <li><?php
                                 if ($bp_main_point_3) : ?>
-                                    <h3><?php echo $bp_main_point_3; ?></h3>
-                                <?php endif;
+                            <h3><?php echo $bp_main_point_3; ?></h3>
+                        <?php endif;
                                 if ($bp_bullet_point_3) : ?>
                                     <p><?php echo $bp_bullet_point_3; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif; ?>
                     </ol>
-                <?php endif;
-            endif; ?>
+            <?php endif;
+                    endif; ?>
         </section>
         <section id="packs" class="packs">
-            <?php 
-            if (function_exists( 'get_field' )) :
-                $packs_heading_1 = get_field( 'packs_heading_1' );
-                $packs_heading_2 = get_field( 'packs_heading_2' );
-                
-                if ($packs_heading_1 || $packs_heading_2): ?>
+            <?php
+            if (function_exists('get_field')) :
+                $packs_heading_1 = get_field('packs_heading_1');
+                $packs_heading_2 = get_field('packs_heading_2');
+
+                if ($packs_heading_1 || $packs_heading_2) : ?>
                     <h2>
-                        <?php echo $packs_heading_1; 
-                            if ($packs_heading_2): ?>
-                                <span><?php echo $packs_heading_2; ?></span>
-                            <?php endif; ?>
+                        <?php echo $packs_heading_1;
+                        if ($packs_heading_2) : ?>
+                            <span><?php echo $packs_heading_2; ?></span>
+                        <?php endif; ?>
                     </h2>
-                <?php endif;
+            <?php endif;
             endif;
-            
+
             $args = array(
                 'post_type' => 'product',
                 'posts_per_page' => -1,
@@ -258,10 +259,10 @@ get_header();
                 
                 if ($order_heading_1 || $order_heading_2): ?>
                     <h2>
-                        <?php echo $order_heading_1; 
-                            if ($order_heading_2): ?>
-                                <span><?php echo $order_heading_2; ?></span>
-                            <?php endif; ?>
+                        <?php echo $order_heading_1;
+                        if ($order_heading_2) : ?>
+                            <span><?php echo $order_heading_2; ?></span>
+                        <?php endif; ?>
                     </h2>
                 <?php endif;
 
@@ -318,8 +319,8 @@ get_header();
                         if ($instruction_2 || $instruction_details_2) : ?>
                             <li><?php
                                 if ($instruction_2) : ?>
-                                    <h3><?php echo $instruction_2; ?></h3>
-                                <?php endif;
+                                <h3><?php echo $instruction_2; ?></h3>
+                            <?php endif;
                                 if ($instruction_details_2) : ?>
                                     <p><?php echo $instruction_details_2; ?></p>
                                 <?php endif; ?>
@@ -328,38 +329,38 @@ get_header();
                         if ($instruction_3 || $instruction_details_3) : ?>
                             <li><?php
                                 if ($instruction_3) : ?>
-                                    <h3><?php echo $instruction_3; ?></h3>
-                                <?php endif;
+                            <h3><?php echo $instruction_3; ?></h3>
+                        <?php endif;
                                 if ($instruction_details_3) : ?>
                                     <p><?php echo $instruction_details_3; ?></p>
                                 <?php endif; ?>
                             </li>
                         <?php endif; ?>
                     </ol>
-                <?php endif;
+            <?php endif;
             endif; ?>
         </section>
         <section class="faq">
             <?php
-            if (function_exists( 'get_field' )) :
-                $faq_heading_1   = get_field( 'faq_heading_1' );
-                $faq_heading_2   = get_field( 'faq_heading_2' );
-                $question_1     = get_field( 'question_1' );
-                $question_2     = get_field( 'question_2' );
-                $question_3     = get_field( 'question_3' );
-                $question_4     = get_field( 'question_4' );
-                $answer_1       = get_field( 'answer_1' );
-                $answer_2       = get_field( 'answer_2' );
-                $answer_3       = get_field( 'answer_3' );
-                $answer_4       = get_field( 'answer_4' );
-                
-                
-                if ($faq_heading_1 || $faq_heading_2): ?>
+            if (function_exists('get_field')) :
+                $faq_heading_1   = get_field('faq_heading_1');
+                $faq_heading_2   = get_field('faq_heading_2');
+                $question_1     = get_field('question_1');
+                $question_2     = get_field('question_2');
+                $question_3     = get_field('question_3');
+                $question_4     = get_field('question_4');
+                $answer_1       = get_field('answer_1');
+                $answer_2       = get_field('answer_2');
+                $answer_3       = get_field('answer_3');
+                $answer_4       = get_field('answer_4');
+
+
+                if ($faq_heading_1 || $faq_heading_2) : ?>
                     <h2>
-                        <?php echo $faq_heading_1; 
-                            if ($faq_heading_2): ?>
-                                <span><?php echo $faq_heading_2; ?></span>
-                            <?php endif; ?>
+                        <?php echo $faq_heading_1;
+                        if ($faq_heading_2) : ?>
+                            <span><?php echo $faq_heading_2; ?></span>
+                        <?php endif; ?>
                     </h2>
                 <?php endif;
 
@@ -378,8 +379,8 @@ get_header();
                         if ($question_2 && $answer_2) : ?>
                             <li><?php
                                 if ($question_2) : ?>
-                                    <h3><?php echo $question_2; ?></h3>
-                                <?php endif;
+                                <h3><?php echo $question_2; ?></h3>
+                            <?php endif;
                                 if ($answer_2) : ?>
                                     <p><?php echo $answer_2; ?></p>
                                 <?php endif; ?>
@@ -388,8 +389,8 @@ get_header();
                         if ($question_3 && $answer_3) : ?>
                             <li><?php
                                 if ($question_3) : ?>
-                                    <h3><?php echo $question_3; ?></h3>
-                                <?php endif;
+                            <h3><?php echo $question_3; ?></h3>
+                        <?php endif;
                                 if ($answer_3) : ?>
                                     <p><?php echo $answer_3; ?></p>
                                 <?php endif; ?>
@@ -398,8 +399,8 @@ get_header();
                         if ($question_4 && $answer_4) : ?>
                             <li><?php
                                 if ($question_4) : ?>
-                                    <h3><?php echo $question_4; ?></h3>
-                                <?php endif;
+                        <h3><?php echo $question_4; ?></h3>
+                    <?php endif;
                                 if ($answer_4) : ?>
                                     <p><?php echo $answer_4; ?></p>
                                 <?php endif; ?>
@@ -414,7 +415,7 @@ get_header();
     <?php
     endwhile; // End of the loop.
     ?>
-    
+
 
 
 </main><!-- #main -->

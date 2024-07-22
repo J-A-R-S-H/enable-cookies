@@ -75,12 +75,13 @@ get_header();
 
                         wc_get_template_part('content', 'product');
 
-                        if (function_exists('get_field')) :
-                            $cookie = ob_get_clean();
+                        $cookie = ob_get_clean();
+                        $cookie = str_replace ('h2', 'h3', $cookie);
 
+                        if (function_exists('get_field')) :
                             $cookie_text_colour = get_field('cookie_text_colour', get_the_ID());
 
-                            $cookie = str_replace('<h2 class="woocommerce-loop-product__title">', '<h2 class="woocommerce-loop-product__title" style="color:' . $cookie_text_colour . ';">', $cookie);
+                            $cookie = str_replace('class="woocommerce-loop-product__title">', 'class="woocommerce-loop-product__title" style="color:' . $cookie_text_colour . ';">', $cookie);
                         endif;
 
                         echo $cookie;
@@ -229,7 +230,15 @@ get_header();
             if ($products->have_posts()) :
                 echo '<ul class="products">';
                 while ($products->have_posts()) : $products->the_post();
+                
+                    ob_start();
+
                     wc_get_template_part('content', 'product');
+
+                    $packs = ob_get_clean();
+                    $packs = str_replace ('h2', 'h3', $packs);
+                    echo $packs;
+                    
                 endwhile;
                 echo '</ul>';
                 wp_reset_postdata();

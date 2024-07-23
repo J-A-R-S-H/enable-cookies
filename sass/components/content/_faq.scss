@@ -6,11 +6,11 @@
     @media screen and (min-width: 600px) {
       display: flex;
       flex-wrap: wrap;
+      gap: 1rem;
 
       li {
-        flex: 0 0 50%;
+        flex: 0 0 calc(50% - 1rem);
         box-sizing: border-box;
-        padding: 1rem;
         h3 {
           margin-top: 0;
         }

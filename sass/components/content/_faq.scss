@@ -1,17 +1,19 @@
 .faq {
   ul {
-    display: flex;
-    flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 0;
+    @media screen and (min-width: 600px) {
+      display: flex;
+      flex-wrap: wrap;
 
-    li {
-      flex: 0 0 50%;
-      box-sizing: border-box;
-      padding: 1rem;
-      h3 {
-        margin-top: 0;
+      li {
+        flex: 0 0 50%;
+        box-sizing: border-box;
+        padding: 1rem;
+        h3 {
+          margin-top: 0;
+        }
       }
     }
   }

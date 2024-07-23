@@ -80,8 +80,37 @@ get_header();
 
                         if (function_exists('get_field')) :
                             $cookie_text_colour = get_field('cookie_text_colour', get_the_ID());
+                            $cookie_text_placement = get_field ('cookie_text_placement', get_the_ID());
+                            $cookie_text_rotation = get_field ('cookie_text_rotation', get_the_ID());
 
-                            $cookie = str_replace('class="woocommerce-loop-product__title">', 'class="woocommerce-loop-product__title" style="color:' . $cookie_text_colour . ';">', $cookie);
+                            // if ($cookie_text_colour) :
+                            //     $cookie = str_replace('class="woocommerce-loop-product__title">', 'class="woocommerce-loop-product__title" style="color:' . $cookie_text_colour . ';">', $cookie);
+                            // endif;
+
+                            if ($cookie_text_placement && $cookie_text_rotation && $cookie_text_colour) :
+                                if ($cookie_text_placement === "top") :
+                                    $cookie = str_replace (
+                                        'class="woocommerce-loop-product__title">', 
+                                        'class="woocommerce-loop-product__title">
+                                            <svg viewBox="0 0 320 320" class="cookie" style="transform: rotate(' . $cookie_text_rotation . 'deg);">
+                                                <path id="curve-top" d="M 24 160 C 24 -20.2 296 -20.2 296 160" style="fill:transparent;" />
+                                                <text fill="' . $cookie_text_colour . '">
+                                                    <textPath xlink:href="#curve-top">', 
+                                        $cookie);
+                                elseif ($cookie_text_placement === "bottom") :
+                                    $cookie = str_replace (
+                                        'class="woocommerce-loop-product__title">', 
+                                        'class="woocommerce-loop-product__title">
+                                            <svg viewBox="0 0 320 320" class="cookie" style="transform: rotate(' . $cookie_text_rotation . 'deg);">
+                                                <path id="curve-bottom" d="M 3.2 160 C 3.2 367.76 316.8 367.76 316.8 160" style="fill:transparent;" />
+                                                <text fill="' . $cookie_text_colour . '">
+                                                    <textPath xlink:href="#curve-bottom">',
+                                        $cookie);
+                                endif;
+
+                                $cookie = str_replace ('</h2>', '</textPath></text></svg></h2>', $cookie);
+
+                            endif;
                         endif;
 
                         echo $cookie;
@@ -238,7 +267,7 @@ get_header();
                     $packs = ob_get_clean();
                     $packs = str_replace ('h2', 'h3', $packs);
                     echo $packs;
-                    
+
                 endwhile;
                 echo '</ul>';
                 wp_reset_postdata();

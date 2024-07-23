@@ -1,0 +1,22 @@
+li.product_cat-cookies {
+    position: relative;
+    margin-top: 4rem;
+}
+
+.product_cat-cookies h3 {
+    position: absolute;
+    top: -4rem;
+    left: 0;
+    right: 0;
+}
+
+svg.cookie text {
+    font-family: $font__subheader;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+svg.cookie {
+    width: em(150);
+    height: em(150);
+}

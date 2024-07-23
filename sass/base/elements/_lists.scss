@@ -1,54 +1,94 @@
-ul,
-ol {
-	margin: 0 0 1.5em 3em;
-}
-
 ul {
-	list-style: disc;
+  list-style: disc;
 }
 
 ol {
-	list-style: decimal;
+  list-style: decimal;
 }
 
 li > ul,
 li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
+  margin-bottom: 0;
+  margin-left: 1.5em;
 }
 
 dt {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 dd {
-	margin: 0 1.5em 1.5em;
+  margin: 0 1.5em 1.5em;
 }
 
 ol > li::marker {
-	font-family: $font__header;
-	font-size: 2rem;
-	color: $color__background-body;
-	padding-right: 3rem;
+  font-family: $font__header;
+  font-size: 2rem;
+  color: $color__background-body;
+  padding-right: 3rem;
 }
 
 li {
-	position: relative;
+  position: relative;
 }
 
-ol li h3::before {
-	content:counter(list-item);
-	font-family: $font__header;
-	font-weight: 400;
-	font-size: 1.75rem;
-	background-color: $brand_dark;
-	color: $brand_light;
-	position: absolute;
-	left: -4rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 3rem;
-	width: 2.75rem;
-	height: 2.75rem;
+.business-proposition {
+  div {
+    flex: 1;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: $brand_dark;
+      span {
+        color: $brand_secondary;
+      }
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  ol {
+    flex: 2;
+    padding: 3rem;
+    padding-left: 5rem;
+    background-color: $brand_primary;
+    border-radius: 10px;
+
+    li {
+      h3 {
+        &::before {
+          content: counter(list-item);
+          font-family: $font__header;
+          font-weight: 400;
+          font-size: 1.75rem;
+          background-color: $brand_dark;
+          color: $brand_light;
+          position: absolute;
+          left: -3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 3rem;
+          width: 2.75rem;
+          height: 2.75rem;
+        }
+        margin-left: 1rem;
+        font-size: 1.2rem;
+        color: $brand_secondary;
+      }
+
+      p {
+        color: $brand_dark;
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .business-proposition {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
 }

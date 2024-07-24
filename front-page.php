@@ -108,7 +108,7 @@ get_header();
                                         $cookie);
                                 endif;
 
-                                $cookie = str_replace ('</h2>', '</textPath></text></svg></h2>', $cookie);
+                                $cookie = str_replace ('</h3>', '</textPath></text></svg></h3>', $cookie);
 
                             endif;
                         endif;

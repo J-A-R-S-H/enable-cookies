@@ -33,14 +33,6 @@
         margin-right: 1rem;
         font-weight: bold;
       }
-
-      h3 {
-        margin: 0;
-      }
-
-      p {
-        margin: 0.5rem 0 0;
-      }
     }
   }
 
@@ -62,15 +54,9 @@
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-
-    &:hover {
-    }
   }
 
-  /* Responsive Styles */
   @media (max-width: 768px) {
-    padding: 1rem;
-
     ol {
       li {
         flex-direction: column;

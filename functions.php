@@ -194,3 +194,13 @@ if (defined('JETPACK__VERSION')) {
 if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * Edit file upload size
+ */
+
+@ini_set( 'upload_max_size' , '256M' );
+
+@ini_set( 'post_max_size', '256M');
+
+@ini_set( 'max_execution_time', '300' );

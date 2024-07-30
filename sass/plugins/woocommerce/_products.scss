@@ -17,6 +17,10 @@ ul.products {
     }
   }
 }
+.packs .products li a {
+  pointer-events: none;
+  cursor: default;
+}
 
 @media screen and (min-width: 585px) {
   ul.products li.product {

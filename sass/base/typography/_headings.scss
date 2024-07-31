@@ -5,6 +5,7 @@ h4,
 h5,
 h6 {
 	clear: both;
+	text-transform: lowercase;
 }
 
 h1 {
@@ -17,12 +18,13 @@ h1 {
 h2 {
 	font-family: $font__header;
 	font-weight: 400;
-	font-size: 2rem;
-	color: $brand_secondary;
-}
+	font-size: 2.5rem;
+	color: $brand_dark;
+	margin-bottom: 0.5rem;
 
-h2>span {
-	color: $brand_secondary;
+	>span {
+		color: $brand_secondary;
+	}
 }
 
 h3 {

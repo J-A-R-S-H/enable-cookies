@@ -10,33 +10,28 @@
   }
 
   ol {
-    list-style: none;
-    padding: 0;
-    counter-reset: step-counter;
+    padding-left: 3rem;
 
     li {
-      margin-top: 1rem;
-      counter-increment: step-counter;
+      padding: 0.5rem 0;
 
-      &::before {
-        content: counter(step-counter);
-        font-size: 1.5rem;
-        font-family: $font__header;
-        background-color: #8c5613;
-        color: white;
-        border-radius: 50%;
-        width: 2rem;
-        height: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 1rem;
-        font-weight: bold;
+      h3 {
+        margin: 2rem 2rem 0;
+        color: $brand_secondary;
+      }
+
+      p {
+        margin: 0.5rem 2rem 1.5rem;
       }
     }
   }
 
+  .button {
+    margin-left: 2rem;
+  }
+
   .contact {
+    margin-left: 2rem;
     margin-top: 1rem;
     padding: 1rem;
     border-radius: 10px;
@@ -45,15 +40,6 @@
     p {
       margin: 0.5rem 0;
     }
-  }
-
-  .button {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
   }
 
   @media (max-width: 768px) {

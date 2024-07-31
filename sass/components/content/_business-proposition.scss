@@ -1,0 +1,36 @@
+.business-proposition {
+    div {
+      flex: 1;
+    }
+  
+    ol {
+      flex: 2;
+      padding: 2rem;
+      padding-left: 5rem;
+      background-color: $brand_primary;
+      border-radius: 1.5rem;
+  
+      li {
+        h3 {
+          margin: 2rem 2rem 0;
+          color: $brand_secondary;
+        }
+  
+        p {
+          margin: 0.5rem 2rem 1.5rem;
+        }
+      }
+    }
+  }
+
+@include mq(1000px) {
+    .business-proposition {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+
+      ol {
+        padding: 2rem 3rem 2rem 8rem;
+      }
+    }
+  }

@@ -5,15 +5,22 @@
   
     ol {
       flex: 2;
-      padding: 2rem;
-      padding-left: 5rem;
+      padding: 1rem;
       background-color: $brand_primary;
       border-radius: 1.5rem;
   
       li {
+        padding-top: 5rem;
         h3 {
           margin: 2rem 2rem 0;
           color: $brand_secondary;
+          position: relative;
+          
+          &::before{
+            top: -4rem;
+            left: 0;
+            right: 0;
+          }
         }
   
         p {
@@ -31,6 +38,7 @@
 
       ol {
         padding: 2rem 3rem 2rem 8rem;
+        padding-left: 5rem;
       }
     }
   }

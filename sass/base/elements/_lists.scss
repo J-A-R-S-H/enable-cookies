@@ -20,12 +20,8 @@ dd {
   margin: 0 1.5em 1.5em;
 }
 
-ol > li::marker {
+ol > li {
   list-style: none;
-  // font-family: $font__header;
-  // font-size: 2rem;
-  // color: $color__background-body;
-  padding-right: 3rem;
 }
 
 ol > li h3::before {

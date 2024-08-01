@@ -161,6 +161,12 @@ function enable_cookies_scripts()
 }
 add_action('wp_enqueue_scripts', 'enable_cookies_scripts');
 
+function load_dashicons_front_end() {
+  wp_enqueue_style( 'dashicons' );
+}
+
+add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
+
 /**
  * Implement the Custom Header feature.
  */

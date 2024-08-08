@@ -83,10 +83,6 @@ get_header();
                             $cookie_text_placement = get_field('cookie_text_placement', get_the_ID());
                             $cookie_text_rotation = get_field('cookie_text_rotation', get_the_ID());
 
-                            // if ($cookie_text_colour) :
-                            //     $cookie = str_replace('class="woocommerce-loop-product__title">', 'class="woocommerce-loop-product__title" style="color:' . $cookie_text_colour . ';">', $cookie);
-                            // endif;
-
                             if ($cookie_text_placement && $cookie_text_rotation && $cookie_text_colour) :
                                 if ($cookie_text_placement === "top") :
                                     $cookie = str_replace(

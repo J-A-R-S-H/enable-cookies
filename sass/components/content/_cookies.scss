@@ -1,13 +1,33 @@
 li.product_cat-cookies {
     position: relative;
     margin-top: 4rem;
+
+    @include mq(em(850)) {
+        margin-top: 5rem;
+    }
+
+    @include mq(em(1000)) {
+        margin-top: 6rem;
+    }
 }
 
 .product_cat-cookies h3 {
     position: absolute;
-    top: -3.5rem;
+    top: -3rem;
     left: 0;
     right: 0;
+
+    @include mq(em(675)) {
+        top: -3.25rem;
+    }
+
+    @include mq(em(900)) {
+        top: -3.75rem;
+    }
+
+    @include mq(em(1200)) {
+        top: -3.5rem;
+    }
 }
 
 svg.cookie text {
@@ -17,6 +37,31 @@ svg.cookie text {
 }
 
 svg.cookie {
-    width: em(200);
-    height: em(200);
+    // width: em(150);
+    // height: em(150);
+
+    width: 75%;
+    height: auto;
+
+    @include mq(em(675)) {
+        width: 70%;
+    }
+
+
+    @include mq(em(1200)) {
+        width: 80%;
+    }
+}
+
+.product_cat-cookies a img {
+    width: 60%;
+    height: auto;
+
+    @include mq(em(675)) {
+        width: 55%;
+    }
+
+    @include mq(em(1200)) {
+        width: 65%;
+    }
 }

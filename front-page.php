@@ -22,7 +22,7 @@ get_header();
     while (have_posts()) :
         the_post(); ?>
 
-        <header>
+        <header class="hero full_bleed">
             <?php
             if (function_exists('get_field')) :
                 $hero_image_id = get_field('hero_image');

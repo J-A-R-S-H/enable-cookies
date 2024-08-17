@@ -41,7 +41,15 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'enable-cookies' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"
+			aria-label="Menu Toggle">
+				<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
+					<title>Menu icon</title>
+					<path d="M2 6h20"></path>
+					<path d="M2 12h20"></path>
+					<path d="M2 18h20"></path>
+				</svg>
+			</button>
 			<div class="menu-header-menu-container">
 				<ul id="header-menu" class="menu nav-menu">
 					<li id="menu-item-home" class="menu-item menu-item-post_type menu-item-object-page menu-item-home">

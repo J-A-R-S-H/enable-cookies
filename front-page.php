@@ -22,7 +22,8 @@ get_header();
     while (have_posts()) :
         the_post(); ?>
 
-        <header class="hero full_bleed">
+        <header class="hero full-bleed">
+            <div>
             <?php
             the_custom_logo();
             if (function_exists('get_field')) :
@@ -32,6 +33,7 @@ get_header();
                     echo wp_get_attachment_image($hero_image_id, 'large');
                 endif;
             endif; ?>
+            </div>
         </header>
 
         <section id="cookies" class="cookies">
@@ -119,8 +121,7 @@ get_header();
                 else :
                     echo 'No products found in this category.';
                 endif;
-            endif;
-            ?>
+            endif; ?>
         </section>
 
         <section id="about" class="about">

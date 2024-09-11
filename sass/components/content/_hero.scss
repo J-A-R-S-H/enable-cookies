@@ -1,8 +1,4 @@
 header.hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background: linear-gradient( 
         to bottom,
         $brand_primary,
@@ -10,19 +6,27 @@ header.hero {
         $color__background-body 85%,
         $color__background-body
     );
-    padding: 1rem 2rem;
-    margin-bottom: 3rem;
-
-    a {
+    >div{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 1rem 2rem;
+        margin-bottom: 3rem;
 
-        img.custom-logo {
-        max-height: 25vh;
-        max-width: 80%;
-        object-fit: cover;
-        object-position: center;
+        a.custom-logo-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            
+            img.custom-logo {
+            // max-height: 25vh;
+            max-width: 80%;
+            // object-fit: contain;
+            object-fit: cover;
+            object-position: center;
+            }
         }
     }
 }

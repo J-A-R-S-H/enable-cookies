@@ -192,7 +192,7 @@
 	.main-navigation.toggled {
 		width: auto;
 
-		// .menu-item-home,
+		.menu-item-home,
 		// .menu-item-242,
 		.menu-toggle {
 			display: none;
@@ -210,7 +210,7 @@
 
 		// .header-nav {
 			
-			.site-header-cart,
+			// .site-header-cart,
 			.menu-header-menu-container {
 				display: flex;
 				display: block;
@@ -293,9 +293,8 @@
 	// 	top: 2.875rem;
 	// }
 	.main-navigation.toggled .menu-header-menu-container ul.nav-menu {
-		position: relative;
-		// top: 2.875rem;
-		top: 11.875rem;
+		position: absolute;
+		top: 4rem;
 	}
 
 	@include mq(em(750)) {

@@ -1,3 +1,7 @@
+.cookies {
+    margin-bottom: 5rem;
+}
+
 li.product_cat-cookies {
     position: relative;
     margin-top: 4rem;
@@ -42,11 +46,11 @@ svg.cookie {
 
     width: 75%;
     height: auto;
+    overflow: hidden;
 
     @include mq(em(675)) {
         width: 70%;
     }
-
 
     @include mq(em(1200)) {
         width: 80%;
@@ -63,5 +67,27 @@ svg.cookie {
 
     @include mq(em(1200)) {
         width: 65%;
+    }
+}
+
+.product_cat-cookies a {
+    img {
+        scale: 1;
+        transition: scale 400ms ease-in-out;
+    }
+
+    svg.cookie {
+        rotate: 0;
+        transition: rotate 400ms ease-in-out;
+    }
+
+    &:hover {
+        img {
+            scale: 1.05;
+        }
+
+        svg.cookie {
+            rotate: 360deg; 
+        }
     }
 }

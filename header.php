@@ -53,21 +53,39 @@
 				</button>
 				<div class="menu-header-menu-container">
 					<ul id="header-menu" class="menu nav-menu">
-						<li id="menu-item-home" class="menu-item menu-item-post_type menu-item-object-page menu-item-home">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Home</a>
-						</li>
-						<li id="menu-item-cookies" class="menu-item menu-item-post_type menu-item-object-page menu-item-cookies">
-							<a href="#cookies">Cookies</a>
-						</li>
-						<li id="menu-item-packs" class="menu-item menu-item-post_type menu-item-object-page menu-item-packs">
-							<a href="#packs">Packs</a>
-						</li>
-						<li id="menu-item-about" class="menu-item menu-item-post_type menu-item-object-page menu-item-about">
-							<a href="#about">About</a>
-						</li>
-						<li id="menu-item-order" class="menu-item menu-item-post_type menu-item-object-page menu-item-order">
-							<a href="#order">Order</a>
-						</li>
+						<?php if ( is_front_page() && is_home() ) : ?>
+							<li id="menu-item-home" class="menu-item menu-item-post_type menu-item-object-page menu-item-home">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Home</a>
+							</li>
+							<li id="menu-item-cookies" class="menu-item menu-item-post_type menu-item-object-page menu-item-cookies">
+								<a href="#cookies">Cookies</a>
+							</li>
+							<li id="menu-item-packs" class="menu-item menu-item-post_type menu-item-object-page menu-item-packs">
+								<a href="#packs">Packs</a>
+							</li>
+							<li id="menu-item-about" class="menu-item menu-item-post_type menu-item-object-page menu-item-about">
+								<a href="#about">About</a>
+							</li>
+							<li id="menu-item-order" class="menu-item menu-item-post_type menu-item-object-page menu-item-order">
+								<a href="#order">Order</a>
+							</li>
+						<?php else : ?>
+							<li id="menu-item-home" class="menu-item menu-item-post_type menu-item-object-page menu-item-home">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Home</a>
+							</li>
+							<li id="menu-item-cookies" class="menu-item menu-item-post_type menu-item-object-page menu-item-cookies">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>#cookies">Cookies</a>
+							</li>
+							<li id="menu-item-packs" class="menu-item menu-item-post_type menu-item-object-page menu-item-packs">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>#packs">Packs</a>
+							</li>
+							<li id="menu-item-about" class="menu-item menu-item-post_type menu-item-object-page menu-item-about">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>#about">About</a>
+							</li>
+							<li id="menu-item-order" class="menu-item menu-item-post_type menu-item-object-page menu-item-order">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>#order">Order</a>
+							</li>
+						<?php endif; ?>
 					</ul>
 				</div>
 			</nav><!-- #site-navigation -->

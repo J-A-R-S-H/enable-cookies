@@ -1,0 +1,69 @@
+footer.site-footer {
+    background: $brand_dark;
+    color: $brand_light;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a, abbr {
+        color: $brand_primary;
+        text-decoration: none;
+
+        &:hover {
+            color: $brand_tertiary_alt;
+        }
+
+        &:active {
+            color: $brand_tertiary;
+        }
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto 2rem;
+        
+        .custom-logo-link {
+            width: 65%;
+            height: auto;
+            filter: contrast(10%) brightness(200%);
+        }
+        .contact-links {
+            text-align: center;
+            a {
+                display: inline-block;
+                padding: 0.25rem;
+
+                .dashicons, img {
+                    width: 2rem;
+                    height: 2rem;
+                    margin: 0.25rem;
+                }
+
+                .dashicons {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    
+    .footer-navigation ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: block;
+            text-align: center;
+            padding: 0.25rem;
+        }
+    }
+
+    .site-info {
+        text-align: center;
+        font-size: 1rem;
+        margin: 3rem 0 0 0;
+    }
+}

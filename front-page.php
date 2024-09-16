@@ -24,15 +24,17 @@ get_header();
 
         <header class="hero full-bleed">
             <div>
-            <?php
-            the_custom_logo();
-            if (function_exists('get_field')) :
-                $hero_image_id = get_field('hero_image');
+                <?php the_custom_logo(); ?>
+                <div>
+                    <?php if (function_exists('get_field')) :
+                        $hero_image_id = get_field('hero_image');
 
-                if ($hero_image_id) :
-                    echo wp_get_attachment_image($hero_image_id, 'large');
-                endif;
-            endif; ?>
+                        if ($hero_image_id) :
+                            echo wp_get_attachment_image($hero_image_id, 'large');
+                        endif;
+                    endif; ?>
+                    <a href="#order" class="button order-button">Order</a>
+                </div>
             </div>
         </header>
 
@@ -277,6 +279,7 @@ get_header();
                 echo 'No products found in this category.';
             endif;
             ?>
+            <a href="#order" class="button order-button">Order</a>
         </section>
         <section id="order" class="order">
             <?php

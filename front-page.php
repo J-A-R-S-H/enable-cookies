@@ -122,6 +122,8 @@ get_header();
                     echo 'No products found in this category.';
                 endif;
             endif; ?>
+
+            <a href="#order" class="button order-button">Order</a>
         </section>
 
         <section id="about" class="about">

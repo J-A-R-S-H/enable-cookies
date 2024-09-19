@@ -2,7 +2,7 @@
 .menu-toggle {
 	stroke: $color__text-main;
 	color: $color__text-main;
-	background-color: transparent;
+	background: transparent;
 	text-transform: uppercase;
 	font-weight: 500;
     display: block;
@@ -21,18 +21,15 @@
 	border-radius: 0;
 
 	&:hover {
-		// background: radial-gradient(
-		// 	circle at bottom,
-		// 	$brand__accent -50%,
-		// 	transparent 50%,
-		// 	transparent
-		// );
+		background: $brand_tertiary;
 	}
 
-	&:active,
+	&:active {
+		background: $brand_tertiary_alt;
+	}
+
 	&:focus {
-		outline: $border__border;
-		box-shadow: $border__shadow;
+		outline: 3px dotted $color__border-button-focus;
 	}
 
 	svg path {
@@ -138,15 +135,66 @@
 		text-decoration: none;
 		text-transform: uppercase;
 
+		// transition: right 100ms ease-in-out;
+		// background-color: $brand_primary;
+		// right: 10rem;
+
 		&:hover,
 		&:active,
 		&:focus {
+			background-image: radial-gradient(
+				circle at right,
+				$brand_light 50%,
+				transparent 50.125%,
+			);
+			background-color: $brand_tertiary_alt;
+			right: 0rem;
+			// animation: 400ms ease-in-out reverse slidein;
+			
+			// background-color: $brand_tertiary_alt;
+
+			// @keyframes nav-background {
+			// 	from {
+			// 		background: radial-gradient(
+			// 			circle at right,
+			// 			$brand_light 0%,
+			// 			transparent 0%,
+			// 		);
+			// 	}
+			// 	to {
+			// 		background: radial-gradient(
+			// 			circle at right,
+			// 			$brand_light 50%,
+			// 			transparent 50.125%,
+			// 		);
+			// 	}
+			// }
 			// background: radial-gradient(
-			// 	circle at left,
-			// 	$brand__accent -45%,
-			// 	$brand__accent75,
-			// 	$brand__accent50
-			// );
+			// 	circle at left 80% top 50%, 
+			// 	$brand_light 30%,
+			// 	$brand_tertiary_alt 30.375%);
+			// }
+
+			// animation: nav-background 400ms ease-in-out reverse slidein;
+
+			// @keyframes nav-background {
+			// 	from {
+			// 		right: -5rem;
+			// 	}
+			// 	to {
+			// 		right: 0rem;
+			// 	}
+
+			animation: nav-background 400ms ease-in-out;
+
+			@keyframes nav-background {
+				from {
+					background-position: right;
+				}
+				to {
+					background-position: left;
+				}
+			}	
 		}
 
 		&:active,
@@ -162,7 +210,7 @@
 }
 
 .main-navigation.toggled .menu-header-menu-container ul {
-	background: $color__background-body;
+	background: $brand_primary;
 	display: block;
 	position: absolute;
 	width: 100%;
@@ -171,7 +219,7 @@
 	top: 4rem;
 
 	.nav-menu {
-		background-color: $color__background-body;
+		background: $brand_primary;
 		list-style: none;
 		padding: 0;
 		margin: 0;

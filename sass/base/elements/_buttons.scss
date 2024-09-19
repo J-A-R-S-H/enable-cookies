@@ -19,11 +19,17 @@ input[type="submit"],
 		background: $color__background-button-hover;
 	}
 
-	&:active,
-	&:focus {
-		outline: 2px dotted $color__border-button-focus;	
-		// border-color: $color__border-button-focus;
+	&:active {
 		background: $brand_accent_alt;
+	}
+
+	&:focus {
+		outline: 3px dotted $color__border-button-focus;
+	}
+	
+	&:hover,
+	&:active {
+		outline: 0;
 	}
 }
 

@@ -156,19 +156,12 @@
 				$brand_light var(--stop1),
 				transparent var(--stop2),
 		);
-		background-color: $brand_primary;
+		background-color: transparent;
 
-		&:hover,
-		&:active,
-		&:focus {
+		&:hover {
 			--stop1: 50%;
 			--stop2: 50.125%;
 			background-color: $brand_tertiary_alt;
-		}
-
-		&:active,
-		&:focus {
-			outline: $border__border;
 		}
 	}
 	// .current_page_item > a,
@@ -210,7 +203,6 @@
 		width: auto;
 
 		.menu-item-home,
-		// .menu-item-242,
 		.menu-toggle {
 			display: none;
 		}
@@ -242,20 +234,23 @@
 						display: flex;
 						flex-direction: column;
 						justify-content: center;
-						background: transparent;
+						padding: 1rem 1.25rem;
+						border-radius: 0 0 50% 50%;
+						overflow-x: visible;
+						background: radial-gradient(
+							circle at top,
+								$brand_light var(--stop1),
+								transparent var(--stop2),
+						);
+						transition: 
+							--stop1 250ms ease-in-out, 
+							--stop2 250ms ease-in-out, 
+							background-color 250ms 50ms ease-in-out;
 
 						&:hover {
-							// background: radial-gradient(
-							// 	circle at bottom,
-							// 	$brand__accent -50%,
-							// 	transparent
-							// );
-						}
-					
-						&:active,
-						&:focus {
-							outline: $border__border;
-							box-shadow: $border__shadow;
+							--stop1: 100%;
+							--stop2: 100%;
+							background-color: $brand_light;
 						}
 					}
 				}

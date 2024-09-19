@@ -167,10 +167,12 @@
 
 		
 			<div class="site-credits">
+				<p>
 				<?php
 				/* translators: 1: Theme author. */
-				printf( esc_html__( 'Website by %1$s', 'enable-cookies' ), '<a href="https://ariellemarin.com/">Arielle M.</a> & John S.' );
+				printf( esc_html__( 'Website by %1$s', 'enable-cookies' ), '<a href="https://ariellemarin.com/">Arielle M.</a> &amp; John S.' );
 				?>
+				</p>
 			</div><!-- .site-info -->
 		</div>
 	</footer><!-- #colophon -->

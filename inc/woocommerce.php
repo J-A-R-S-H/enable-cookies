@@ -295,18 +295,22 @@ function display_product_specifications()
 
 	// Check if the field has a value
 	if (function_exists('get_field')) {
-		if ($ingredients) {
-			echo '<section class="ingredients">';
-			echo '<h3>Ingredients:</h3>';
-			echo '<p>' . $ingredients . '</p>';
-			echo '</section>';
-		}
-
-		if ($allergen_info) {
-			echo '<section class="allergen">';
-			echo '<h3>Allergen Info: </h3>';
-			echo '<p>' . $allergen_info . '</p>';
-			echo '</section>';
+		if ($ingredients || $allergen_info) { 
+		?>
+			<section class="dietary-information">
+				<h2>Dietary Information</h2>
+			<?php if ($ingredients) { ?>
+				<p>
+					<strong><?php _e( 'Ingredients:', 'enable-cookies' ); ?></strong>
+					<?php echo $ingredients; } ?>
+				</p>
+			<?php if ($allergen_info) { ?>
+				<p>
+					<strong><?php _e( 'Allergen Info:', 'enable-cookies' ); ?></strong>
+					<?php echo $allergen_info; } ?>
+				</p>
+			</section>
+		<?php 
 		}
 	}
 }

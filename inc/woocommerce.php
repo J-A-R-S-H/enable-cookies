@@ -262,6 +262,13 @@ remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_pro
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 
+// move description under header
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+function woocommerce_template_product_description() {
+	woocommerce_get_template('single-product/tabs/description.php');
+}
+add_action('woocommerce_single_product_summary', 'woocommerce_template_product_description', 22);
+
 // remove additional information products
 function remove_additional_information_tab_callback($tabs)
 {
@@ -271,8 +278,6 @@ function remove_additional_information_tab_callback($tabs)
 add_filter('woocommerce_product_tabs', 'remove_additional_information_tab_callback', 98);
 
 
-// add acf fields before the title
-add_action('woocommerce_before_single_product_summary', 'display_product_images', 25);
 function display_product_images() {
 	$cookie_composition_image_id = get_field('cookie_composition_image');
 
@@ -284,6 +289,13 @@ function display_product_images() {
 	}
 }
 
+// add back to home link before the title
+add_action('woocommerce_before_single_product_summary', 'display_back_to_home_link', 10);
+function display_back_to_home_link() {
+	?>
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>#cookies">&larr; Back to Cookies</a>
+	<?php
+}
 
 // add acf fields after the title
 add_action('woocommerce_single_product_summary', 'display_product_specifications', 25);
@@ -314,3 +326,6 @@ function display_product_specifications()
 		}
 	}
 }
+
+// add image acf fields after product information
+add_action('woocommerce_after_single_product_summary', 'display_product_images', 25);

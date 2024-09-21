@@ -1,15 +1,23 @@
-.product {
-  margin: $spacing__margin;
+.single.single-product .product {
+  padding: 2rem 1rem 3rem 1rem;
   display: flex;
-  flex-direction: column-reverse;
+  flex-flow: column nowrap;
   gap: 1rem;
 
-  .entry-summary {
+  a {
+    display: block;
+    width: 100%;
+  }
+
+  div.entry-summary {
     .product_title {
       color: $brand_dark;
     }
-
-    section {
+    >h2 {
+      display: none;
+    }
+    section.dietary-information {
+      margin: 3rem 0 0 0;
       h2 {
         font-family: $font__subheader;
         font-size: 1.5rem;
@@ -22,14 +30,15 @@
   
 
   @include mq(em(750)) {
-    flex-direction: row-reverse;
+    flex-flow: row wrap;
     
     .entry-summary {
       width: 60%;
+      margin: 0 2rem 0 0;
     }
 
     img {
-      max-width: 40%;
+      width: calc(40% - 3rem);
       height: auto; 
       object-fit: contain;
     }

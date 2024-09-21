@@ -1,13 +1,14 @@
 body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
 
-	.site, .site-main {
+	.site, 
+	.site-main {
 		background-color: transparent;
 		max-width: em(1200);
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		min-height: 100vh;
+		min-height: 80vh;
 		padding: 0;
 
 		section{

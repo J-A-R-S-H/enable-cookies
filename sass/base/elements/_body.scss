@@ -4,7 +4,7 @@ body {
 	.site, 
 	.site-main {
 		background-color: transparent;
-		max-width: em(1200);
+		max-width: 75rem;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
@@ -23,7 +23,7 @@ body {
 			right: 50%;
 			margin: 0 -50vw;
 			display: grid;
-			grid-template-columns: 1fr min(1200px, 100%) 1fr;
+			grid-template-columns: 1fr min(75rem, 100%) 1fr;
 		  }
 		  .full-bleed > div {
 			grid-column: 2/3;

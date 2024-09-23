@@ -11,8 +11,12 @@ body {
 		min-height: 80vh;
 		padding: 0;
 
-		section{
-			padding: 0 1rem;
+		>section{
+			padding: 1rem;
+
+			@include mq(em(600)) {
+				padding: 2rem;
+			}
 		}
 	
 		@include mq(em(1200)) {

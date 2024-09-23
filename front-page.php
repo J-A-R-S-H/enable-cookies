@@ -281,180 +281,189 @@ get_header();
             ?>
             <a href="#order" class="button order-button">Order</a>
         </section>
-        <section id="order" class="order">
-            <?php
-            if (function_exists('get_field')) :
-                $order_heading_1 = get_field('order_heading_1');
-                $order_heading_2 = get_field('order_heading_2');
-                $order_reminder = get_field('order_reminder');
-                $order_form     = get_field('order_form');
-                $instruction_1  = get_field('instruction_1');
-                $instruction_2  = get_field('instruction_2');
-                $instruction_3  = get_field('instruction_3');
-                $instruction_details_1  = get_field('instruction_details_1');
-                $instruction_details_2  = get_field('instruction_details_2');
-                $instruction_details_3  = get_field('instruction_details_3');
-                $contact_instruction    = get_field('contact_instruction');
-                $social_media_link_1    = get_field('social_media_link_1');
-                $social_media_link_2    = get_field('social_media_link_2');
-                $social_media_link_3    = get_field('social_media_link_3');
-                $social_media_link_4    = get_field('social_media_link_4');
-                $social_media_icon_1    = get_field('social_media_icon_1');
-                $social_media_icon_2    = get_field('social_media_icon_2');
-                $social_media_icon_3    = get_field('social_media_icon_3');
-                $social_media_icon_4    = get_field('social_media_icon_4');
+        <section id="order" class="order full-bleed">
+            <div>
+                <?php
+                if (function_exists('get_field')) :
+                    $order_heading_1 = get_field('order_heading_1');
+                    $order_heading_2 = get_field('order_heading_2');
+                    $order_reminder = get_field('order_reminder');
+                    $order_form     = get_field('order_form');
+                    $instruction_1  = get_field('instruction_1');
+                    $instruction_2  = get_field('instruction_2');
+                    $instruction_3  = get_field('instruction_3');
+                    $instruction_details_1  = get_field('instruction_details_1');
+                    $instruction_details_2  = get_field('instruction_details_2');
+                    $instruction_details_3  = get_field('instruction_details_3');
+                    $contact_instruction    = get_field('contact_instruction');
+                    $social_media_link_1    = get_field('social_media_link_1');
+                    $social_media_link_2    = get_field('social_media_link_2');
+                    $social_media_link_3    = get_field('social_media_link_3');
+                    $social_media_link_4    = get_field('social_media_link_4');
+                    $social_media_icon_1    = get_field('social_media_icon_1');
+                    $social_media_icon_2    = get_field('social_media_icon_2');
+                    $social_media_icon_3    = get_field('social_media_icon_3');
+                    $social_media_icon_4    = get_field('social_media_icon_4');
 
-                $icon_size = 'full'; // (thumbnail, medium, large, full, or custom size)
+                    $icon_size = 'full'; // (thumbnail, medium, large, full, or custom size)
 
-                if ($order_heading_1 || $order_heading_2) : ?>
-                    <h2>
-                        <?php echo $order_heading_1;
-                        if ($order_heading_2) : ?>
-                            <span><?php echo $order_heading_2; ?></span>
-                        <?php endif; ?>
-                    </h2>
+                    if ($order_heading_1 || $order_heading_2) : ?>
+                        <h2>
+                            <?php echo $order_heading_1;
+                            if ($order_heading_2) : ?>
+                                <span><?php echo $order_heading_2; ?></span>
+                            <?php endif; ?>
+                        </h2>
+                    <?php endif;
+
+                    if ($order_reminder) : ?>
+                        <aside class="reminder">
+                            <strong><?php _e( 'Please note:', 'enable-cookies' ); ?></strong>
+                            <?php echo $order_reminder; ?>
+                        </aside>
+                    <?php endif;
+
+                    if ($instruction_1 || $instruction_details_1) : ?>
+                        <ol><?php
+                            if ($instruction_1 || $instruction_details_1) : ?>
+                                <li><?php
+                                    if ($instruction_1) : ?>
+                                        <h3><?php echo $instruction_1; ?></h3>
+                                    <?php endif;
+                                    if ($instruction_details_1) : ?>
+                                        <p><?php echo $instruction_details_1; ?></p>
+                                    <?php endif;
+                                    if ($order_form) :
+                                        $order_form_url = $order_form['url'];
+                                        $order_form_title = $order_form['title'];
+                                        $order_form_target = $order_form['target'] ? $order_form['target'] : '_self'; ?>
+                                        <a class="button order-form" href="<?php echo esc_url($order_form_url); ?>" target="<?php echo esc_attr($order_form_target); ?>"><?php echo esc_html($order_form_title); ?><span class="dashicons dashicons-external"></span></a>
+                                    <?php endif;
+                                    if ($contact_instruction || $social_media_link_1 || $social_media_link_2 || $social_media_link_3 || $social_media_link_4) : ?>
+                                        <div class="contact">
+                                            <?php if ($contact_instruction) : ?>
+                                                <p><?php echo $contact_instruction; ?></p>
+                                            <?php endif;
+                                            if ($social_media_link_1 || $social_media_link_2 || $social_media_link_3 || $social_media_link_4) : ?>
+                                                <div>
+                                                    <?php if ($social_media_link_1) :
+                                                        $social_media_link_1_url = $social_media_link_1['url'];
+                                                        $social_media_link_1_title = $social_media_link_1['title'];
+                                                        $social_media_link_1_target = $social_media_link_1['target'] ? $social_media_link_1['target'] : '_self';
+
+                                                        if ($social_media_icon_1) :
+                                                            $social_media_icon_1_type = $social_media_icon_1['type'];
+                                                            $social_media_icon_1_value = $social_media_icon_1['value'];
+                                                        endif; ?>
+
+                                                        <a href="<?php echo esc_url($social_media_link_1_url); ?>" target="<?php echo esc_attr($social_media_link_1_target); ?>"><?php
+                                                            if ('dashicons' === $social_media_icon_1_type) :
+                                                                ?><span class="dashicons <?php echo esc_attr($social_media_icon_1_value); ?>"></span><?php
+                                                            elseif ('media_library' === $social_media_icon_1_type) :
+                                                                $image_html = wp_get_attachment_image($social_media_icon_1_value, $icon_size);
+                                                                echo wp_kses_post($image_html);
+                                                            elseif ('url' === $social_media_icon_1_type) :
+                                                                ?><img src="<?php echo esc_url($social_media_icon_1_value); ?>" alt=""><?php
+                                                            endif; ?>
+                                                            <?php echo esc_html($social_media_link_1_title); ?>
+                                                        </a>
+                                                    <?php endif;
+                                                    if ($social_media_link_2) :
+                                                        $social_media_link_2_url = $social_media_link_2['url'];
+                                                        $social_media_link_2_title = $social_media_link_2['title'];
+                                                        $social_media_link_2_target = $social_media_link_2['target'] ? $social_media_link_2['target'] : '_self';
+
+                                                        if ($social_media_icon_2) :
+                                                            $social_media_icon_2_type = $social_media_icon_2['type'];
+                                                            $social_media_icon_2_value = $social_media_icon_2['value'];
+                                                        endif; ?>
+
+                                                        <a href="<?php echo esc_url($social_media_link_2_url); ?>" target="<?php echo esc_attr($social_media_link_2_target); ?>"><?php
+                                                            if ('dashicons' === $social_media_icon_2_type) :
+                                                                ?><span class="dashicons <?php echo esc_attr($social_media_icon_2_value); ?>"></span><?php
+                                                            elseif ('media_library' === $social_media_icon_2_type) :
+                                                                $image_html = wp_get_attachment_image($social_media_icon_2_value, $icon_size);
+                                                                echo wp_kses_post($image_html);
+                                                            elseif ('url' === $social_media_icon_2_type) :
+                                                                ?><img src="<?php echo esc_url($social_media_icon_2_value); ?>" alt=""><?php
+                                                            endif; ?>
+                                                            <?php echo esc_html($social_media_link_2_title); ?>
+                                                        </a>
+                                                    <?php endif;
+                                                    if ($social_media_link_3) :
+                                                        $social_media_link_3_url = $social_media_link_3['url'];
+                                                        $social_media_link_3_title = $social_media_link_3['title'];
+                                                        $social_media_link_3_target = $social_media_link_3['target'] ? $social_media_link_3['target'] : '_self';
+
+                                                        if ($social_media_icon_3) :
+                                                            $social_media_icon_3_type = $social_media_icon_3['type'];
+                                                            $social_media_icon_3_value = $social_media_icon_3['value'];
+                                                        endif; ?>
+
+                                                        <a href="<?php echo esc_url($social_media_link_3_url); ?>" target="<?php echo esc_attr($social_media_link_3_target); ?>"><?php
+                                                            if ('dashicons' === $social_media_icon_3_type) :
+                                                                ?><span class="dashicons <?php echo esc_attr($social_media_icon_3_value); ?>"></span><?php
+                                                            elseif ('media_library' === $social_media_icon_3_type) :
+                                                                $image_html = wp_get_attachment_image($social_media_icon_3_value, $icon_size);
+                                                                echo wp_kses_post($image_html);
+                                                            elseif ('url' === $social_media_icon_3_type) :
+                                                                ?><img src="<?php echo esc_url($social_media_icon_3_value); ?>" alt=""><?php
+                                                            endif; ?>
+                                                            <?php echo esc_html($social_media_link_3_title); ?>
+                                                        </a>
+                                                    <?php endif;
+                                                    if ($social_media_link_4) :
+                                                        $social_media_link_4_url = $social_media_link_4['url'];
+                                                        $social_media_link_4_title = $social_media_link_4['title'];
+                                                        $social_media_link_4_target = $social_media_link_4['target'] ? $social_media_link_4['target'] : '_self';
+
+                                                        if ($social_media_icon_4) :
+                                                            $social_media_icon_4_type = $social_media_icon_4['type'];
+                                                            $social_media_icon_4_value = $social_media_icon_4['value'];
+                                                        endif; ?>
+
+                                                        <a href="<?php echo esc_url($social_media_link_4_url); ?>" target="<?php echo esc_attr($social_media_link_4_target); ?>"><?php
+                                                            if ('dashicons' === $social_media_icon_4_type) :
+                                                                ?><span class="dashicons <?php echo esc_attr($social_media_icon_4_value); ?>"></span><?php
+                                                            elseif ('media_library' === $social_media_icon_4_type) :
+                                                                $image_html = wp_get_attachment_image($social_media_icon_4_value, $icon_size);
+                                                                echo wp_kses_post($image_html);
+                                                            elseif ('url' === $social_media_icon_4_type) :
+                                                                ?><img src="<?php echo esc_url($social_media_icon_4_value); ?>" alt=""><?php
+                                                            endif; ?>
+                                                            <?php echo esc_html($social_media_link_4_title); ?>
+                                                        </a>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endif;
+                            if ($instruction_2 || $instruction_details_2) : ?>
+                                <li><?php
+                                    if ($instruction_2) : ?>
+                                        <h3><?php echo $instruction_2; ?></h3>
+                                    <?php endif;
+                                    if ($instruction_details_2) : ?>
+                                        <p><?php echo $instruction_details_2; ?></p>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endif;
+                            if ($instruction_3 || $instruction_details_3) : ?>
+                                <li><?php
+                                    if ($instruction_3) : ?>
+                                        <h3><?php echo $instruction_3; ?></h3>
+                                    <?php endif;
+                                    if ($instruction_details_3) : ?>
+                                        <p><?php echo $instruction_details_3; ?></p>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endif; ?>
+                        </ol>
                 <?php endif;
-
-                if ($instruction_1 || $instruction_details_1) : ?>
-                    <ol><?php
-                        if ($instruction_1 || $instruction_details_1) : ?>
-                            <li><?php
-                                if ($instruction_1) : ?>
-                                    <h3><?php echo $instruction_1; ?></h3>
-                                <?php endif;
-                                if ($instruction_details_1) : ?>
-                                    <p><?php echo $instruction_details_1; ?></p>
-                                <?php endif;
-                                if ($order_form) :
-                                    $order_form_url = $order_form['url'];
-                                    $order_form_title = $order_form['title'];
-                                    $order_form_target = $order_form['target'] ? $order_form['target'] : '_self'; ?>
-                                    <a class="button" href="<?php echo esc_url($order_form_url); ?>" target="<?php echo esc_attr($order_form_target); ?>"><?php echo esc_html($order_form_title); ?></a>
-                                <?php endif;
-                                if ($contact_instruction || $social_media_link_1 || $social_media_link_2 || $social_media_link_3 || $social_media_link_4) : ?>
-                                    <div class="contact">
-                                        <?php if ($contact_instruction) : ?>
-                                            <p><?php echo $contact_instruction; ?></p>
-                                        <?php endif;
-                                        if ($social_media_link_1 || $social_media_link_2 || $social_media_link_3 || $social_media_link_4) : ?>
-                                            <div>
-                                                <?php if ($social_media_link_1) :
-                                                    $social_media_link_1_url = $social_media_link_1['url'];
-                                                    $social_media_link_1_title = $social_media_link_1['title'];
-                                                    $social_media_link_1_target = $social_media_link_1['target'] ? $social_media_link_1['target'] : '_self';
-
-                                                    if ($social_media_icon_1) :
-                                                        $social_media_icon_1_type = $social_media_icon_1['type'];
-                                                        $social_media_icon_1_value = $social_media_icon_1['value'];
-                                                    endif; ?>
-
-                                                    <a href="<?php echo esc_url($social_media_link_1_url); ?>" target="<?php echo esc_attr($social_media_link_1_target); ?>"><?php
-                                                        if ('dashicons' === $social_media_icon_1_type) :
-                                                            ?><span class="dashicons <?php echo esc_attr($social_media_icon_1_value); ?>"></span><?php
-                                                        elseif ('media_library' === $social_media_icon_1_type) :
-                                                            $image_html = wp_get_attachment_image($social_media_icon_1_value, $icon_size);
-                                                            echo wp_kses_post($image_html);
-                                                        elseif ('url' === $social_media_icon_1_type) :
-                                                            ?><img src="<?php echo esc_url($social_media_icon_1_value); ?>" alt=""><?php
-                                                        endif; ?>
-                                                        <?php echo esc_html($social_media_link_1_title); ?>
-                                                    </a>
-                                                <?php endif;
-                                                if ($social_media_link_2) :
-                                                    $social_media_link_2_url = $social_media_link_2['url'];
-                                                    $social_media_link_2_title = $social_media_link_2['title'];
-                                                    $social_media_link_2_target = $social_media_link_2['target'] ? $social_media_link_2['target'] : '_self';
-
-                                                    if ($social_media_icon_2) :
-                                                        $social_media_icon_2_type = $social_media_icon_2['type'];
-                                                        $social_media_icon_2_value = $social_media_icon_2['value'];
-                                                    endif; ?>
-
-                                                    <a href="<?php echo esc_url($social_media_link_2_url); ?>" target="<?php echo esc_attr($social_media_link_2_target); ?>"><?php
-                                                        if ('dashicons' === $social_media_icon_2_type) :
-                                                            ?><span class="dashicons <?php echo esc_attr($social_media_icon_2_value); ?>"></span><?php
-                                                        elseif ('media_library' === $social_media_icon_2_type) :
-                                                            $image_html = wp_get_attachment_image($social_media_icon_2_value, $icon_size);
-                                                            echo wp_kses_post($image_html);
-                                                        elseif ('url' === $social_media_icon_2_type) :
-                                                            ?><img src="<?php echo esc_url($social_media_icon_2_value); ?>" alt=""><?php
-                                                        endif; ?>
-                                                        <?php echo esc_html($social_media_link_2_title); ?>
-                                                    </a>
-                                                <?php endif;
-                                                if ($social_media_link_3) :
-                                                    $social_media_link_3_url = $social_media_link_3['url'];
-                                                    $social_media_link_3_title = $social_media_link_3['title'];
-                                                    $social_media_link_3_target = $social_media_link_3['target'] ? $social_media_link_3['target'] : '_self';
-
-                                                    if ($social_media_icon_3) :
-                                                        $social_media_icon_3_type = $social_media_icon_3['type'];
-                                                        $social_media_icon_3_value = $social_media_icon_3['value'];
-                                                    endif; ?>
-
-                                                    <a href="<?php echo esc_url($social_media_link_3_url); ?>" target="<?php echo esc_attr($social_media_link_3_target); ?>"><?php
-                                                        if ('dashicons' === $social_media_icon_3_type) :
-                                                            ?><span class="dashicons <?php echo esc_attr($social_media_icon_3_value); ?>"></span><?php
-                                                        elseif ('media_library' === $social_media_icon_3_type) :
-                                                            $image_html = wp_get_attachment_image($social_media_icon_3_value, $icon_size);
-                                                            echo wp_kses_post($image_html);
-                                                        elseif ('url' === $social_media_icon_3_type) :
-                                                            ?><img src="<?php echo esc_url($social_media_icon_3_value); ?>" alt=""><?php
-                                                        endif; ?>
-                                                        <?php echo esc_html($social_media_link_3_title); ?>
-                                                    </a>
-                                                <?php endif;
-                                                if ($social_media_link_4) :
-                                                    $social_media_link_4_url = $social_media_link_4['url'];
-                                                    $social_media_link_4_title = $social_media_link_4['title'];
-                                                    $social_media_link_4_target = $social_media_link_4['target'] ? $social_media_link_4['target'] : '_self';
-
-                                                    if ($social_media_icon_4) :
-                                                        $social_media_icon_4_type = $social_media_icon_4['type'];
-                                                        $social_media_icon_4_value = $social_media_icon_4['value'];
-                                                    endif; ?>
-
-                                                    <a href="<?php echo esc_url($social_media_link_4_url); ?>" target="<?php echo esc_attr($social_media_link_4_target); ?>"><?php
-                                                        if ('dashicons' === $social_media_icon_4_type) :
-                                                            ?><span class="dashicons <?php echo esc_attr($social_media_icon_4_value); ?>"></span><?php
-                                                        elseif ('media_library' === $social_media_icon_4_type) :
-                                                            $image_html = wp_get_attachment_image($social_media_icon_4_value, $icon_size);
-                                                            echo wp_kses_post($image_html);
-                                                        elseif ('url' === $social_media_icon_4_type) :
-                                                            ?><img src="<?php echo esc_url($social_media_icon_4_value); ?>" alt=""><?php
-                                                        endif; ?>
-                                                        <?php echo esc_html($social_media_link_4_title); ?>
-                                                    </a>
-                                                <?php endif; ?>
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                <?php endif; ?>
-                            </li>
-                        <?php endif;
-                        if ($instruction_2 || $instruction_details_2) : ?>
-                            <li><?php
-                                if ($instruction_2) : ?>
-                                    <h3><?php echo $instruction_2; ?></h3>
-                                <?php endif;
-                                if ($instruction_details_2) : ?>
-                                    <p><?php echo $instruction_details_2; ?></p>
-                                <?php endif; ?>
-                            </li>
-                        <?php endif;
-                        if ($instruction_3 || $instruction_details_3) : ?>
-                            <li><?php
-                                if ($instruction_3) : ?>
-                                    <h3><?php echo $instruction_3; ?></h3>
-                                <?php endif;
-                                if ($instruction_details_3) : ?>
-                                    <p><?php echo $instruction_details_3; ?></p>
-                                <?php endif; ?>
-                            </li>
-                        <?php endif; ?>
-                    </ol>
-            <?php endif;
-            endif; ?>
+                endif; ?>
+            </div>
         </section>
         <section class="faq">
             <?php

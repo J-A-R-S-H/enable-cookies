@@ -4,16 +4,24 @@ body section.about {
     }
 
     img {
-        border-radius: 1.5rem;
+        border-radius: 3rem;
+        object-fit: cover;
     }
 
-    @include mq(em(900)) {
+    @include mq(em(700)) {
         display: flex;
         flex-direction: row-reverse;
-        gap: 3rem;
+        align-items: center;
+        gap: 6rem;
 
-        // >div {
-        //     max-width: 40%;
-        // }
+        img {
+            max-width: 55%;
+        }
+    }
+
+    @include mq(em(1100)) {
+        img {
+            max-width: 65%;
+        }
     }
 }

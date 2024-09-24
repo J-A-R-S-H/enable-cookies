@@ -136,27 +136,26 @@ get_header();
                 $about_image_id = get_field('about_image');
                 $about_text     = get_field('about_text');
 
-                if ($about_heading_1 || $about_heading_2) : ?>
-                    <h2>
-                        <?php echo $about_heading_1;
-                        if ($about_heading_2) : ?>
-                            <span><?php echo $about_heading_2; ?></span>
-                        <?php endif; ?>
-                    </h2>
-                <?php endif;
-
-                if ($about_image_id || $about_text) : ?>
-                    <div>
-                        <?php
-                        if ($about_image_id) :
-                            echo wp_get_attachment_image($about_image_id, 'large');
-                        endif;
-
+                if ($about_heading_1 || $about_heading_2 || $about_text ) : ?>
+                    <div> <?php 
+                        if ($about_heading_1 || $about_heading_2) : ?>
+                            <h2>
+                                <?php echo $about_heading_1;
+                                if ($about_heading_2) : ?>
+                                    <span><?php echo $about_heading_2; ?></span>
+                                <?php endif; ?>
+                            </h2>
+                        <?php endif;
                         if ($about_text) : ?>
                             <p><?php echo $about_text; ?></p>
                         <?php endif; ?>
                     </div>
-            <?php endif;
+                    <?php
+                endif;
+                
+                if ($about_image_id) :
+                    echo wp_get_attachment_image($about_image_id, 'large');
+                endif;
             endif; ?>
         </section>
         <section class="business-proposition">

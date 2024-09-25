@@ -261,23 +261,6 @@ remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_pro
 // remove prices products 
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
 
-// // if (is_product_category() && has_term('cookies', 'product_cat', 16)) {
-// // if (has_term('cookies', 'product_cat', 16)) {}
-add_action('woocommerce_after_shop_loop_item_title', 'hide_loop_product_prices', 1);
-function hide_loop_product_prices() {
-	// if (is_product_category('cookies')){
-	//  if (is_product_category('cookies') && has_term('cookies', 'product_cat', 16)) {
-	if (has_term('cookies')) {
- 		// hide prices
-		remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
-		// var_dump( get_terms() );
-	} elseif (has_term('pack-of-cookies')) {
-		return;
-	}
-}
-
-
-
 // move description under header
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 function woocommerce_template_product_description() {

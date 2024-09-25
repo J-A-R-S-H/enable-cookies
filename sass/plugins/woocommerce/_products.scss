@@ -29,7 +29,7 @@ ul.products {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@include mq(em(1000)) {
   ul.products li.product {
     flex: 0 0 calc(33.3% - 1rem);
     max-width: calc(

@@ -16,9 +16,17 @@
 
     .product_cat-cookies h3 {
         position: absolute;
-        top: -3rem;
+        top: -3.125rem;
         left: 0;
         right: 0;
+
+        @include mq(em(550)) {
+            top: -4.125rem;
+        }
+
+        @include mq(em(587)) {
+            top: -3rem;
+        }
 
         @include mq(em(675)) {
             top: -3.25rem;
@@ -26,6 +34,10 @@
 
         @include mq(em(900)) {
             top: -3.75rem;
+        }
+
+        @include mq(em(1000)) {
+            top: -3rem;
         }
 
         @include mq(em(1200)) {
@@ -70,6 +82,11 @@
     }
 
     .product_cat-cookies a {
+        span.price {
+            display: none;
+            visibility: hidden;
+        }
+
         img {
             scale: 1;
             transition: scale 400ms ease-in-out;

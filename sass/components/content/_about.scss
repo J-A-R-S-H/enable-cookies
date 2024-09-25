@@ -6,17 +6,24 @@ body section.about {
     img {
         border-radius: 3rem;
         object-fit: cover;
+        height: max-content;
     }
 
     @include mq(em(700)) {
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
-        gap: 6rem;
+        gap: 3rem;
 
         img {
             max-width: 55%;
+            height: revert-layer;
+            object-fit: cover;
         }
+    }
+
+    @include mq(em(1000)) {
+        gap: 6rem;
     }
 
     @include mq(em(1100)) {

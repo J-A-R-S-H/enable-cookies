@@ -238,3 +238,12 @@ add_action( 'wp_enqueue_scripts', function() {
     // Remove classic-themes CSS for backwards compatibility for button blocks.
     wp_dequeue_style( 'classic-theme-styles' );
 }, 20 );
+
+
+/**
+ * Lower Yoast SEO Metabox location
+ */
+function yoast_to_bottom(){
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );

@@ -17,20 +17,17 @@ if (heroLogo == undefined) {
     });
 }
 
+function unclickableLink(element) {
+    if (element !== undefined) {
+        element.addEventListener('click', function (e) {
+            e.preventDefault();
+        } );
+        element.setAttribute('tabindex', '-1');
+    }
+}
 
 const heroLogoLink = document.querySelectorAll("header.hero a.custom-logo-link")[0];
-if (heroLogoLink !== undefined) {
-    heroLogoLink.addEventListener('click', function (e) {
-        e.preventDefault();
-    } );
-    heroLogoLink.setAttribute('tabindex', '-1');
-}
-
 const footerLogoLink = document.querySelectorAll("footer a.custom-logo-link")[0];
-if (footerLogoLink !== undefined) {
-    footerLogoLink.addEventListener('click', function (e) {
-        e.preventDefault();
-    } );
-    
-    footerLogoLink.setAttribute('tabindex', '-1');
-}
+
+unclickableLink(heroLogoLink);
+unclickableLink(footerLogoLink);

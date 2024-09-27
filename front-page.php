@@ -33,7 +33,7 @@ get_header();
                             echo wp_get_attachment_image($hero_image_id, 'large');
                         endif;
                     endif; ?>
-                    <a href="#order" class="button order-button">Order</a>
+                    <a href="#order" class="button order-button">Order Now</a>
                 </div>
             </div>
         </header>
@@ -125,7 +125,7 @@ get_header();
                 endif;
             endif; ?>
 
-            <a href="#order" class="button order-button">Order</a>
+            <a href="#order" class="button order-button">Order Now</a>
         </section>
 
         <section id="about" class="about">
@@ -278,7 +278,7 @@ get_header();
                 echo 'No products found in this category.';
             endif;
             ?>
-            <a href="#order" class="button order-button">Order</a>
+            <a href="#order" class="button order-button">Order Now</a>
         </section>
         <section id="order" class="order full-bleed">
             <div>

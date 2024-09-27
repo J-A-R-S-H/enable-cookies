@@ -59,13 +59,11 @@
 .main-navigation.toggled .menu-toggle svg {
 	path:first-of-type {
 		rotate: -45deg;
-		// translate: 0rem -0.3125rem;
 		translate: 0.0625rem -0.2625rem;
 	} 
 
 	path:last-of-type {
 		rotate: 45deg;
-		// translate: 0rem 0.3125rem;
 		translate: 0.0625rem 0.2625rem;
 	  }
 
@@ -113,14 +111,6 @@
 			a {
 				width: 200px;
 			}
-
-			// :hover > a,
-			// .focus > a {
-			// }
-
-			// a:hover,
-			// a.focus {
-			// }
 		}
 
 		li:hover > ul,
@@ -131,10 +121,6 @@
 
 	li {
 		position: relative;
-
-		&:hover > a,
-		&.focus > a {
-		}
 	}
 
 	a {
@@ -164,11 +150,6 @@
 			background-color: $brand_tertiary_alt;
 		}
 	}
-	// .current_page_item > a,
-	// .current-menu-item > a,
-	// .current_page_ancestor > a,
-	// .current-menu-ancestor > a {
-	// }
 }
 
 .main-navigation.toggled .menu-header-menu-container ul {
@@ -301,9 +282,6 @@
 }
 
 .admin-bar {
-	// .menu-toggle {
-	// 	top: 2.875rem;
-	// }
 	.main-navigation.toggled .menu-header-menu-container ul.nav-menu {
 		position: absolute;
 		top: 4rem;
@@ -315,23 +293,6 @@
 		}
 	}
 }
-
-// /* Small menu. */
-// .menu-toggle,
-// .main-navigation.toggled ul {
-// 	display: block;
-// }
-
-// @media screen and (min-width: 37.5em) {
-
-// 	.menu-toggle {
-// 		display: none;
-// 	}
-
-// 	.main-navigation ul {
-// 		display: flex;
-// 	}
-// }
 
 .comment-navigation,
 .posts-navigation,

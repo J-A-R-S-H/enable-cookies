@@ -153,7 +153,7 @@ function enable_cookies_scripts()
 	wp_enqueue_style('enable-cookies-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('enable-cookies-style', 'rtl', 'replace');
 
-	wp_enqueue_script('enable-cookies-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('enable-cookies-navigation', get_template_directory_uri() . '/js/navigation.js', array('strategy' => 'defer'), _S_VERSION, true);
 
 	wp_enqueue_script(
 		'enable-cookies-header',

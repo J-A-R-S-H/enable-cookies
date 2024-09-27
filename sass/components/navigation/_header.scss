@@ -23,6 +23,10 @@ body .site header.site-header {
                 display: flex;
                 align-items: center;
 
+                @media screen and (prefers-reduced-motion: reduce) {
+                    transition: none;
+                }
+
                 img.custom-logo {
                 height: auto;
                 width: 4rem;

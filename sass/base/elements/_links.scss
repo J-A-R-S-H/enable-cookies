@@ -2,6 +2,10 @@ a {
 	color: $color__link;
 	transition: $animation-timing;
 
+	@media screen and (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+
 	&:visited {
 		color: $color__link-visited;
 	}

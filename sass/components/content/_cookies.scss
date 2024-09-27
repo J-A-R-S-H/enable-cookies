@@ -87,11 +87,19 @@
         img {
             scale: 1;
             transition: scale 400ms ease-in-out;
+
+            @media screen and (prefers-reduced-motion: reduce) {
+                transition: none;
+            }
         }
 
         svg.cookie {
             rotate: 0;
             transition: rotate 400ms ease-in-out;
+
+            @media screen and (prefers-reduced-motion: reduce) {
+                transition: none;
+            }
         }
 
         &:hover {
@@ -101,6 +109,10 @@
 
             svg.cookie {
                 rotate: 360deg; 
+
+                @media screen and (prefers-reduced-motion: reduce) {
+                    rotate: 15deg;
+                }
             }
         }
     }

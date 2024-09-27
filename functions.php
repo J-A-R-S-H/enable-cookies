@@ -247,3 +247,19 @@ function yoast_to_bottom(){
 	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
+
+/**
+ * Remove default Dashboard Widgets
+ */
+function enable_cookies_remove_dashboard_widget() {
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+	remove_meta_box( 'health_check_status', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');
+	remove_meta_box ( 'wc_admin_dashboard_setup', 'dashboard', 'normal' );
+	remove_meta_box ( 'wordfence_activity_report_widget', 'dashboard', 'normal' );
+	remove_meta_box ( 'wpseo-dashboard-overview', 'dashboard', 'normal' );
+	remove_meta_box ( 'wpseo-wincher-dashboard-overview', 'dashboard', 'normal' );
+} 
+add_action( 'wp_dashboard_setup', 'enable_cookies_remove_dashboard_widget' );

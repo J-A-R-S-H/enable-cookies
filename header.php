@@ -42,7 +42,7 @@
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"
+				<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"
 				aria-label="Menu Toggle">
 					<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
 						<title>Menu icon</title>

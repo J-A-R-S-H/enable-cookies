@@ -146,9 +146,9 @@ get_header();
                                 <?php endif; ?>
                             </h2>
                         <?php endif;
-                        if ($about_text) : ?>
-                            <p><?php echo $about_text; ?></p>
-                        <?php endif; ?>
+                        if ($about_text) :
+                            echo $about_text;
+                        endif; ?>
                     </div>
                     <?php
                 endif;

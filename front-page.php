@@ -112,6 +112,10 @@ get_header();
                                 endif;
 
                                 $cookie = str_replace('</h3>', '</textPath></text></svg></h3>', $cookie);
+                                
+                                $cookie = str_replace('<h1 class="product_title entry-title">', '<p class="screen-reader-text">', $cookie);
+                                $cookie = str_replace('</h1>', '</p>', $cookie);
+                                
 
                             endif;
                         endif;

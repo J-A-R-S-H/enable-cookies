@@ -276,6 +276,11 @@ function remove_additional_information_tab_callback($tabs)
 }
 add_filter('woocommerce_product_tabs', 'remove_additional_information_tab_callback', 98);
 
+function cookies_product_title() {
+	woocommerce_get_template('single-product/title.php');
+}
+add_action('woocommerce_after_shop_loop_item_title', 'cookies_product_title', 15);
+
 
 function display_product_images() {
 	$cookie_composition_image_id = get_field('cookie_composition_image');

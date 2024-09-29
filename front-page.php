@@ -78,6 +78,13 @@ get_header();
 
                         ob_start();
 
+                        if ($products->get_queried_object_id() !== 16) {
+                            remove_action('woocommerce_after_shop_loop_item_title', 'cookies_product_title', 15);
+                        }
+                        if ($products->get_queried_object_id() !== 18) {
+                            remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+                        }
+                        
                         wc_get_template_part('content', 'product');
 
                         $cookie = ob_get_clean();
@@ -112,13 +119,6 @@ get_header();
                                 endif;
 
                                 $cookie = str_replace('</h3>', '</textPath></text></svg></h3>', $cookie);
-                                
-                                if ($products->get_queried_object_id() !== 16) {
-                                    remove_action('woocommerce_after_shop_loop_item_title', 'cookies_product_title', 15);
-                                }
-                                if ($products->get_queried_object_id() !== 18) {
-                                    remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
-                                }
                                 $cookie = str_replace('<h1 class="product_title entry-title">', '<p class="screen-reader-text">', $cookie);
                                 $cookie = str_replace('</h1>', '</p>', $cookie);
 
@@ -279,6 +279,8 @@ get_header();
                     }
                     if ($products->get_queried_object_id() !== 18) {
                         remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+                    } else {
+                        add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
                     }
 
                     wc_get_template_part('content', 'product');

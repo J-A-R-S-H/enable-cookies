@@ -1,0 +1,25 @@
+/* VARIABLES */
+:root {
+    --dark: #1C1009;
+    --light: #fffdf8;
+    --primary: #ffd230;
+    --secondary: #723f18;
+    --tertiary: #ce631a;
+    --tertiary_alt: #e4772e;
+    --accent: #7f120a;
+    --accent_alt: #65110c;
+}
+
+body.login div#login h1 a,
+body.login div.login h1 a {
+    background-image: url('enable-cookies-logo.png');
+    height: 8rem;
+    width: 8rem;
+    background-size: 8rem 8rem;
+    background-repeat: no-repeat;
+}
+
+body.login {
+    background-color: var(--primary);
+    color: var(--dark);
+}

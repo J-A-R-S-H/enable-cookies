@@ -42,12 +42,12 @@
 
 										<a href="<?php echo esc_url($social_media_link_1_url); ?>" target="<?php echo esc_attr($social_media_link_1_target); ?>"><?php
 											if ('dashicons' === $social_media_icon_1_type) :
-												?><span class="dashicons <?php echo esc_attr($social_media_icon_1_value); ?>"></span><?php
+												?><span class="dashicons <?php echo esc_attr($social_media_icon_1_value); ?>"><span class="screen-reader-text"><?php echo esc_attr($social_media_icon_1_value); _e( ' icon', 'enable-cookies' ); ?></span></span><?php
 											elseif ('media_library' === $social_media_icon_1_type) :
 												$image_html = wp_get_attachment_image($social_media_icon_1_value, $icon_size);
 												echo wp_kses_post($image_html);
 											elseif ('url' === $social_media_icon_1_type) :
-												?><img src="<?php echo esc_url($social_media_icon_1_value); ?>" alt=""><?php
+												?><img src="<?php echo esc_url($social_media_icon_1_value); ?>" alt="Social media icon"><?php
 											endif; ?>
 										</a>
 									<?php endif;
@@ -63,12 +63,12 @@
 
 										<a href="<?php echo esc_url($social_media_link_2_url); ?>" target="<?php echo esc_attr($social_media_link_2_target); ?>"><?php
 											if ('dashicons' === $social_media_icon_2_type) :
-												?><span class="dashicons <?php echo esc_attr($social_media_icon_2_value); ?>"></span><?php
+												?><span class="dashicons <?php echo esc_attr($social_media_icon_2_value); ?>"><span class="screen-reader-text"><?php echo esc_attr($social_media_icon_2_value); _e( ' icon', 'enable-cookies' ); ?></span></span><?php
 											elseif ('media_library' === $social_media_icon_2_type) :
 												$image_html = wp_get_attachment_image($social_media_icon_2_value, $icon_size);
 												echo wp_kses_post($image_html);
 											elseif ('url' === $social_media_icon_2_type) :
-												?><img src="<?php echo esc_url($social_media_icon_2_value); ?>" alt=""><?php
+												?><img src="<?php echo esc_url($social_media_icon_2_value); ?>" alt="Social media icon"><?php
 											endif; ?>
 										</a>
 									<?php endif;
@@ -84,12 +84,12 @@
 
 										<a href="<?php echo esc_url($social_media_link_3_url); ?>" target="<?php echo esc_attr($social_media_link_3_target); ?>"><?php
 											if ('dashicons' === $social_media_icon_3_type) :
-												?><span class="dashicons <?php echo esc_attr($social_media_icon_3_value); ?>"></span><?php
+												?><span class="dashicons <?php echo esc_attr($social_media_icon_3_value); ?>"><span class="screen-reader-text"><?php echo esc_attr($social_media_icon_3_value); _e( ' icon', 'enable-cookies' ); ?></span></span><?php
 											elseif ('media_library' === $social_media_icon_3_type) :
 												$image_html = wp_get_attachment_image($social_media_icon_3_value, $icon_size);
 												echo wp_kses_post($image_html);
 											elseif ('url' === $social_media_icon_3_type) :
-												?><img src="<?php echo esc_url($social_media_icon_3_value); ?>" alt=""><?php
+												?><img src="<?php echo esc_url($social_media_icon_3_value); ?>" alt="Social media icon"><?php
 											endif; ?>
 										</a>
 									<?php endif;
@@ -105,12 +105,12 @@
 
 										<a href="<?php echo esc_url($social_media_link_4_url); ?>" target="<?php echo esc_attr($social_media_link_4_target); ?>"><?php
 											if ('dashicons' === $social_media_icon_4_type) :
-												?><span class="dashicons <?php echo esc_attr($social_media_icon_4_value); ?>"></span><?php
+												?><span class="dashicons <?php echo esc_attr($social_media_icon_4_value); ?>"><span class="screen-reader-text"><?php echo esc_attr($social_media_icon_4_value); _e( ' icon', 'enable-cookies' ); ?></span></span><?php
 											elseif ('media_library' === $social_media_icon_4_type) :
 												$image_html = wp_get_attachment_image($social_media_icon_4_value, $icon_size);
 												echo wp_kses_post($image_html);
 											elseif ('url' === $social_media_icon_4_type) :
-												?><img src="<?php echo esc_url($social_media_icon_4_value); ?>" alt=""><?php
+												?><img src="<?php echo esc_url($social_media_icon_4_value); ?>" alt="Social media icon"><?php
 											endif; ?>
 										</a>
 									<?php endif; ?>

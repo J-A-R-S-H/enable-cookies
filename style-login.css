@@ -127,7 +127,3 @@ body.login div#login p#backtoblog a:hover {
 body.login div#login form#loginform div.user-pass-wrap {
     margin-bottom: 1.25rem;
 }
-
-body.login div.language-switcher form#language-switcher select#language-switcher-locales {
-    padding: 0.385rem;
-}

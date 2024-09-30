@@ -248,6 +248,16 @@ function yoast_to_bottom(){
 }
 add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
 
+/**
+ * Remove the content editor from home page 
+ */
+function remove_content_editor() {
+	if ( get_the_ID() === 2 ) {
+		remove_post_type_support('page', 'editor');
+	}
+}
+add_action('add_meta_boxes', 'remove_content_editor');
+
 // Login
 get_template_part('template-parts/login');
 

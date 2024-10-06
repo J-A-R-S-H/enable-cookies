@@ -263,3 +263,21 @@ get_template_part('template-parts/login');
 
 // Dashboard widgets & admin menu bar
 get_template_part("template-parts/wp-dashboard");
+
+/**
+ * Custom Admin Color Scheme
+ * (used https://wpadmincolors.com/)
+ */
+function enable_cookies_admin_color_scheme() {
+	//Get the theme directory
+	$theme_dir = get_stylesheet_directory_uri();
+  
+	//enable cookies
+	wp_admin_css_color( 
+		'enable_cookies', 
+		__( 'enable cookies' ),
+	  	$theme_dir . '/style-admin-enable-cookies.css',
+	  	array( '#ffd230', '#723f18', '#e4772e' , '#f19910')
+	);
+}
+add_action('admin_init', 'enable_cookies_admin_color_scheme');

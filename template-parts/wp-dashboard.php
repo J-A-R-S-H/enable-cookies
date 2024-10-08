@@ -50,3 +50,19 @@ function enable_cookies_remove_dashboard_widget() {
 	remove_meta_box ( 'wpseo-wincher-dashboard-overview', 'dashboard', 'normal' );
 } 
 add_action( 'wp_dashboard_setup', 'enable_cookies_remove_dashboard_widget' );
+
+function enable_cookies_welcome_widget()
+{
+?>
+	<p>Hello! To get started, read through the <a href="https://docs.google.com/document/d/1suV9bgiCvSdv2Kqqis9xX-8JLiEdTwSmD_TqtIX55fs/edit?usp=sharing">WordPress Guide</a> to learn how to navigate this admin area and edit the site's content.</p>
+	<p>If you're looking to create designs that are consistent with the site, take a look at the <a href="https://docs.google.com/presentation/d/1HDDfWLwOk4rXBpACoNsN5nLhj7wmcwOGQSe3qvHEcD0/edit?usp=sharing">branding guide</a>.</p>
+	<p>Confused or stuck? Have you run into any issues with the site? Don't hesitate to contact me at <a href="mailto:ariem.marii@gmail.com">ariem.marii@gmail.com</a> and I'll try to help as best as I can!</p>
+	<p>Good luck! &#127850;</p>
+<?php
+}
+
+function enable_cookies_add_dashboard_widgets()
+{
+    wp_add_dashboard_widget("enable_cookies_welcome", "Welcome to your dashboard!", "enable_cookies_welcome_widget");
+}
+add_action('wp_dashboard_setup', 'enable_cookies_add_dashboard_widgets');
